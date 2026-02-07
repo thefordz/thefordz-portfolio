@@ -40,6 +40,8 @@ model Profile {
   bio          String?
   avatarUrl    String?
   avatarKey    String?
+  resumeUrl    String?
+  resumeKey    String?
   location     String?
   availability String?
 

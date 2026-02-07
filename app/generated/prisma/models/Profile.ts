@@ -31,6 +31,8 @@ export type ProfileMinAggregateOutputType = {
   bio: string | null
   avatarUrl: string | null
   avatarKey: string | null
+  resumeUrl: string | null
+  resumeKey: string | null
   location: string | null
   availability: string | null
   createdAt: Date | null
@@ -44,6 +46,8 @@ export type ProfileMaxAggregateOutputType = {
   bio: string | null
   avatarUrl: string | null
   avatarKey: string | null
+  resumeUrl: string | null
+  resumeKey: string | null
   location: string | null
   availability: string | null
   createdAt: Date | null
@@ -57,6 +61,8 @@ export type ProfileCountAggregateOutputType = {
   bio: number
   avatarUrl: number
   avatarKey: number
+  resumeUrl: number
+  resumeKey: number
   location: number
   availability: number
   createdAt: number
@@ -72,6 +78,8 @@ export type ProfileMinAggregateInputType = {
   bio?: true
   avatarUrl?: true
   avatarKey?: true
+  resumeUrl?: true
+  resumeKey?: true
   location?: true
   availability?: true
   createdAt?: true
@@ -85,6 +93,8 @@ export type ProfileMaxAggregateInputType = {
   bio?: true
   avatarUrl?: true
   avatarKey?: true
+  resumeUrl?: true
+  resumeKey?: true
   location?: true
   availability?: true
   createdAt?: true
@@ -98,6 +108,8 @@ export type ProfileCountAggregateInputType = {
   bio?: true
   avatarUrl?: true
   avatarKey?: true
+  resumeUrl?: true
+  resumeKey?: true
   location?: true
   availability?: true
   createdAt?: true
@@ -184,6 +196,8 @@ export type ProfileGroupByOutputType = {
   bio: string | null
   avatarUrl: string | null
   avatarKey: string | null
+  resumeUrl: string | null
+  resumeKey: string | null
   location: string | null
   availability: string | null
   createdAt: Date
@@ -218,6 +232,8 @@ export type ProfileWhereInput = {
   bio?: Prisma.StringNullableFilter<"Profile"> | string | null
   avatarUrl?: Prisma.StringNullableFilter<"Profile"> | string | null
   avatarKey?: Prisma.StringNullableFilter<"Profile"> | string | null
+  resumeUrl?: Prisma.StringNullableFilter<"Profile"> | string | null
+  resumeKey?: Prisma.StringNullableFilter<"Profile"> | string | null
   location?: Prisma.StringNullableFilter<"Profile"> | string | null
   availability?: Prisma.StringNullableFilter<"Profile"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Profile"> | Date | string
@@ -232,6 +248,8 @@ export type ProfileOrderByWithRelationInput = {
   bio?: Prisma.SortOrderInput | Prisma.SortOrder
   avatarUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   avatarKey?: Prisma.SortOrderInput | Prisma.SortOrder
+  resumeUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  resumeKey?: Prisma.SortOrderInput | Prisma.SortOrder
   location?: Prisma.SortOrderInput | Prisma.SortOrder
   availability?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -249,6 +267,8 @@ export type ProfileWhereUniqueInput = Prisma.AtLeast<{
   bio?: Prisma.StringNullableFilter<"Profile"> | string | null
   avatarUrl?: Prisma.StringNullableFilter<"Profile"> | string | null
   avatarKey?: Prisma.StringNullableFilter<"Profile"> | string | null
+  resumeUrl?: Prisma.StringNullableFilter<"Profile"> | string | null
+  resumeKey?: Prisma.StringNullableFilter<"Profile"> | string | null
   location?: Prisma.StringNullableFilter<"Profile"> | string | null
   availability?: Prisma.StringNullableFilter<"Profile"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Profile"> | Date | string
@@ -263,6 +283,8 @@ export type ProfileOrderByWithAggregationInput = {
   bio?: Prisma.SortOrderInput | Prisma.SortOrder
   avatarUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   avatarKey?: Prisma.SortOrderInput | Prisma.SortOrder
+  resumeUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  resumeKey?: Prisma.SortOrderInput | Prisma.SortOrder
   location?: Prisma.SortOrderInput | Prisma.SortOrder
   availability?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -282,6 +304,8 @@ export type ProfileScalarWhereWithAggregatesInput = {
   bio?: Prisma.StringNullableWithAggregatesFilter<"Profile"> | string | null
   avatarUrl?: Prisma.StringNullableWithAggregatesFilter<"Profile"> | string | null
   avatarKey?: Prisma.StringNullableWithAggregatesFilter<"Profile"> | string | null
+  resumeUrl?: Prisma.StringNullableWithAggregatesFilter<"Profile"> | string | null
+  resumeKey?: Prisma.StringNullableWithAggregatesFilter<"Profile"> | string | null
   location?: Prisma.StringNullableWithAggregatesFilter<"Profile"> | string | null
   availability?: Prisma.StringNullableWithAggregatesFilter<"Profile"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Profile"> | Date | string
@@ -295,6 +319,8 @@ export type ProfileCreateInput = {
   bio?: string | null
   avatarUrl?: string | null
   avatarKey?: string | null
+  resumeUrl?: string | null
+  resumeKey?: string | null
   location?: string | null
   availability?: string | null
   createdAt?: Date | string
@@ -309,6 +335,8 @@ export type ProfileUncheckedCreateInput = {
   bio?: string | null
   avatarUrl?: string | null
   avatarKey?: string | null
+  resumeUrl?: string | null
+  resumeKey?: string | null
   location?: string | null
   availability?: string | null
   createdAt?: Date | string
@@ -323,6 +351,8 @@ export type ProfileUpdateInput = {
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumeUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumeKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   availability?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -337,6 +367,8 @@ export type ProfileUncheckedUpdateInput = {
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumeUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumeKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   availability?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -351,6 +383,8 @@ export type ProfileCreateManyInput = {
   bio?: string | null
   avatarUrl?: string | null
   avatarKey?: string | null
+  resumeUrl?: string | null
+  resumeKey?: string | null
   location?: string | null
   availability?: string | null
   createdAt?: Date | string
@@ -364,6 +398,8 @@ export type ProfileUpdateManyMutationInput = {
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumeUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumeKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   availability?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -377,6 +413,8 @@ export type ProfileUncheckedUpdateManyInput = {
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumeUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumeKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   availability?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -390,6 +428,8 @@ export type ProfileCountOrderByAggregateInput = {
   bio?: Prisma.SortOrder
   avatarUrl?: Prisma.SortOrder
   avatarKey?: Prisma.SortOrder
+  resumeUrl?: Prisma.SortOrder
+  resumeKey?: Prisma.SortOrder
   location?: Prisma.SortOrder
   availability?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -403,6 +443,8 @@ export type ProfileMaxOrderByAggregateInput = {
   bio?: Prisma.SortOrder
   avatarUrl?: Prisma.SortOrder
   avatarKey?: Prisma.SortOrder
+  resumeUrl?: Prisma.SortOrder
+  resumeKey?: Prisma.SortOrder
   location?: Prisma.SortOrder
   availability?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -416,6 +458,8 @@ export type ProfileMinOrderByAggregateInput = {
   bio?: Prisma.SortOrder
   avatarUrl?: Prisma.SortOrder
   avatarKey?: Prisma.SortOrder
+  resumeUrl?: Prisma.SortOrder
+  resumeKey?: Prisma.SortOrder
   location?: Prisma.SortOrder
   availability?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -460,6 +504,8 @@ export type ProfileCreateWithoutSocialsInput = {
   bio?: string | null
   avatarUrl?: string | null
   avatarKey?: string | null
+  resumeUrl?: string | null
+  resumeKey?: string | null
   location?: string | null
   availability?: string | null
   createdAt?: Date | string
@@ -473,6 +519,8 @@ export type ProfileUncheckedCreateWithoutSocialsInput = {
   bio?: string | null
   avatarUrl?: string | null
   avatarKey?: string | null
+  resumeUrl?: string | null
+  resumeKey?: string | null
   location?: string | null
   availability?: string | null
   createdAt?: Date | string
@@ -502,6 +550,8 @@ export type ProfileUpdateWithoutSocialsInput = {
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumeUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumeKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   availability?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -515,6 +565,8 @@ export type ProfileUncheckedUpdateWithoutSocialsInput = {
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumeUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumeKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   availability?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -559,6 +611,8 @@ export type ProfileSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   bio?: boolean
   avatarUrl?: boolean
   avatarKey?: boolean
+  resumeUrl?: boolean
+  resumeKey?: boolean
   location?: boolean
   availability?: boolean
   createdAt?: boolean
@@ -574,6 +628,8 @@ export type ProfileSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   bio?: boolean
   avatarUrl?: boolean
   avatarKey?: boolean
+  resumeUrl?: boolean
+  resumeKey?: boolean
   location?: boolean
   availability?: boolean
   createdAt?: boolean
@@ -587,6 +643,8 @@ export type ProfileSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   bio?: boolean
   avatarUrl?: boolean
   avatarKey?: boolean
+  resumeUrl?: boolean
+  resumeKey?: boolean
   location?: boolean
   availability?: boolean
   createdAt?: boolean
@@ -600,13 +658,15 @@ export type ProfileSelectScalar = {
   bio?: boolean
   avatarUrl?: boolean
   avatarKey?: boolean
+  resumeUrl?: boolean
+  resumeKey?: boolean
   location?: boolean
   availability?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type ProfileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "fullName" | "headline" | "bio" | "avatarUrl" | "avatarKey" | "location" | "availability" | "createdAt" | "updatedAt", ExtArgs["result"]["profile"]>
+export type ProfileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "fullName" | "headline" | "bio" | "avatarUrl" | "avatarKey" | "resumeUrl" | "resumeKey" | "location" | "availability" | "createdAt" | "updatedAt", ExtArgs["result"]["profile"]>
 export type ProfileInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   socials?: boolean | Prisma.Profile$socialsArgs<ExtArgs>
   _count?: boolean | Prisma.ProfileCountOutputTypeDefaultArgs<ExtArgs>
@@ -626,6 +686,8 @@ export type $ProfilePayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     bio: string | null
     avatarUrl: string | null
     avatarKey: string | null
+    resumeUrl: string | null
+    resumeKey: string | null
     location: string | null
     availability: string | null
     createdAt: Date
@@ -1060,6 +1122,8 @@ export interface ProfileFieldRefs {
   readonly bio: Prisma.FieldRef<"Profile", 'String'>
   readonly avatarUrl: Prisma.FieldRef<"Profile", 'String'>
   readonly avatarKey: Prisma.FieldRef<"Profile", 'String'>
+  readonly resumeUrl: Prisma.FieldRef<"Profile", 'String'>
+  readonly resumeKey: Prisma.FieldRef<"Profile", 'String'>
   readonly location: Prisma.FieldRef<"Profile", 'String'>
   readonly availability: Prisma.FieldRef<"Profile", 'String'>
   readonly createdAt: Prisma.FieldRef<"Profile", 'DateTime'>

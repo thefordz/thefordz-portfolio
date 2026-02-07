@@ -1499,6 +1499,8 @@ export const ProfileScalarFieldEnum = {
   bio: 'bio',
   avatarUrl: 'avatarUrl',
   avatarKey: 'avatarKey',
+  resumeUrl: 'resumeUrl',
+  resumeKey: 'resumeKey',
   location: 'location',
   availability: 'availability',
   createdAt: 'createdAt',
