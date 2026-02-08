@@ -12,6 +12,23 @@ export async function getProjects() {
         updatedAt: "desc",
       },
     ],
+    include: {
+      skills: {
+        include: {
+          skill: {
+            include: {
+              category: {
+                select: {
+                  id: true,
+                  name: true,
+                  order: true,
+                },
+              },
+            },
+          },
+        },
+      },
+    },
   });
 }
 
@@ -22,6 +39,23 @@ export async function getFeaturedProjects(take: number) {
     where: { isFeatured: true },
     orderBy: {
       order: "asc",
+    },
+    include: {
+      skills: {
+        include: {
+          skill: {
+            include: {
+              category: {
+                select: {
+                  id: true,
+                  name: true,
+                  order: true,
+                },
+              },
+            },
+          },
+        },
+      },
     },
     take,
   });

@@ -57,7 +57,7 @@ export function SkillSection({ isAdmin, categories }: SkillSectionProps) {
         <AdminContentWrapper
           isAdmin={isAdmin}
           title="My Skills"
-          description="This is my skill i can use"
+          description="Technologies I work with."
         >
           {isAdmin && (
             <div className="absolute top-4 right-4">

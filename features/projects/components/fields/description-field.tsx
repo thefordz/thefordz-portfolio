@@ -24,7 +24,7 @@ export function DescriptionField() {
           <FormControl>
             <Textarea
               rows={6}
-              placeholder="Explain the project in detail. Tech stack, challenges, architecture decisions..."
+              placeholder="1. Problem 2.Solution 3.Key Features 4.Techical Decisions"
               {...field}
             />
           </FormControl>

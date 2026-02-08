@@ -22,16 +22,20 @@ import { TitleField } from "../fields/title-field";
 import { SummaryField } from "../fields/summary-field";
 import { DescriptionField } from "../fields/description-field";
 import { CardWrapper } from "@/features/shared/components/card-wrapper";
+import { ProjectSkillsField } from "../fields/project-skills-field";
+import { SkillCategoryOption } from "@/features/skill/lib/skill.types";
 
 interface ProjectsFormProps {
   projectId?: string;
   initialValues?: ProjectFormValues;
+  categories: SkillCategoryOption[];
   onClose?: () => void;
 }
 
 export function ProjectsForm({
   projectId,
   initialValues: project,
+  categories,
   onClose,
 }: ProjectsFormProps) {
   const [isPending, startTransition] = useTransition();
@@ -47,6 +51,7 @@ export function ProjectsForm({
       liveUrl: project?.liveUrl ?? "",
       githubUrl: project?.githubUrl ?? "",
       isFeatured: project?.isFeatured ?? false,
+      skillIds: project?.skillIds ?? [],
     },
   });
 
@@ -82,6 +87,7 @@ export function ProjectsForm({
               <TitleField />
               <SummaryField />
               <DescriptionField />
+              <ProjectSkillsField categories={categories} />
             </CardWrapper>
           </div>
 

@@ -13,5 +13,6 @@ export function mapProjectToFormSafe(
     liveUrl: project?.liveUrl ?? "",
     githubUrl: project?.githubUrl ?? "",
     isFeatured: project?.isFeatured ?? false,
+    skillIds: project?.skills.map((s) => s.skillId) ?? [],
   };
 }

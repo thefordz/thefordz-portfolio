@@ -9,7 +9,6 @@ import prisma from "@/lib/prisma";
 export async function updateProfile(values: unknown) {
   try {
     const data = profileFormSchema.parse(values);
-
     await prisma.profile.update({
       where: { id: PROFILE_ID },
       data: {

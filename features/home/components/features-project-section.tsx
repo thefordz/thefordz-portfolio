@@ -32,7 +32,7 @@ export function FeaturedProjectsSection({ projects, isAdmin }: Props) {
               Featured Projects
             </h2>
             <p className="text-muted-foreground text-sm">
-              Selected work I’m proud of.
+              Selected work that represents my experience and focus.
             </p>
           </div>
           <div className="space-y-3">

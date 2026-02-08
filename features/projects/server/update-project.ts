@@ -14,17 +14,26 @@ export async function updateProject(
 ) {
   try {
     const data = projectFormSchema.parse(values);
+    console.log(JSON.stringify(values, null, 2));
 
     await prisma.project.update({
       where: { id: projectId },
       data: {
-        ...data,
+        title: data.title,
+        summary: data.summary,
         description: data.description || null,
+        images: data.images,
+        projectType: data.projectType,
         liveUrl: data.liveUrl || null,
         githubUrl: data.githubUrl || null,
-      },
-      select: {
-        id: true,
+        isFeatured: data.isFeatured,
+
+        skills: {
+          deleteMany: {},
+          create: data.skillIds?.map((skillId) => ({
+            skill: { connect: { id: skillId } },
+          })),
+        },
       },
     });
 
@@ -32,6 +41,7 @@ export async function updateProject(
 
     return { success: true };
   } catch (error) {
+    console.error("[Update Project]", error);
     handleActionError(error);
   }
 }

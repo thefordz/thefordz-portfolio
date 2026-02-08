@@ -27,6 +27,8 @@ export const projectFormSchema = z.object({
   githubUrl: z.string().url().optional().or(z.literal("")),
 
   isFeatured: z.boolean(),
+
+  skillIds: z.array(z.string()).optional(),
 });
 
 export type ProjectFormValues = z.infer<typeof projectFormSchema>;

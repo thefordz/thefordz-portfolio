@@ -10,7 +10,6 @@ import { revalidatePath } from "next/cache";
 export async function createProject(values: ProjectFormValues) {
   try {
     const data = projectFormSchema.parse(values);
-
     const lastProject = await prisma.project.findFirst({
       orderBy: [{ order: "desc" }, { updatedAt: "desc" }],
       select: { order: true },
@@ -25,6 +24,11 @@ export async function createProject(values: ProjectFormValues) {
         liveUrl: data.liveUrl || null,
         githubUrl: data.githubUrl || null,
         order: nextOrder,
+        skills: {
+          create: data.skillIds?.map((skillId) => ({
+            skill: { connect: { id: skillId } },
+          })),
+        },
       },
     });
 
