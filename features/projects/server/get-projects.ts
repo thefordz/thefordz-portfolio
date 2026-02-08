@@ -3,7 +3,7 @@
 import prisma from "@/lib/prisma";
 
 export async function getProjects() {
-  return prisma.project.findMany({
+  return await prisma.project.findMany({
     orderBy: [
       {
         order: "asc",
@@ -16,3 +16,13 @@ export async function getProjects() {
 }
 
 export type ProjectsType = Awaited<ReturnType<typeof getProjects>>;
+
+export async function getFeaturedProjects(take: number) {
+  return await prisma.project.findMany({
+    where: { isFeatured: true },
+    orderBy: {
+      order: "asc",
+    },
+    take,
+  });
+}

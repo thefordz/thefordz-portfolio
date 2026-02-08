@@ -19,6 +19,7 @@ import { reorderProjects } from "../server/reorder-projects";
 import { SortableProjectCard } from "./sortable-project-card";
 import { ProjectsType } from "../server/get-projects";
 import { ProjectType } from "../server/get-project";
+import { ProjectCard } from "./project-card";
 
 interface Props {
   projects: ProjectsType;
@@ -75,9 +76,10 @@ export function ProjectsSortable({ projects, onOpen }: Props) {
             <SortableProjectCard
               key={project.id}
               project={project}
-              onOpen={onOpen}
               disabled={isPending}
-            />
+            >
+              <ProjectCard project={project} onOpen={() => onOpen(project)} />
+            </SortableProjectCard>
           ))}
         </div>
       </SortableContext>

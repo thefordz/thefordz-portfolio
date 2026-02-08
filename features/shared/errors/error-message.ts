@@ -8,7 +8,7 @@ export const ERROR_MESSAGES: Record<string, string> = {
     "You need to be logged in to perform this action.",
 
   //Prisma Error messages
-  [ERROR_CODES.SLUG_ALREADY_EXISTS]: "This slug is already used.",
+  [ERROR_CODES.SLUG_ALREADY_EXISTS]: "This name is already used.",
   [ERROR_CODES.FOREIGN_KEY_VIOLATION]: "Related data not missing.",
   [ERROR_CODES.NOT_FOUND]: "Data not found.",
 

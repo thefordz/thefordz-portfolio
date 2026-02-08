@@ -3,21 +3,15 @@
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { cn } from "@/lib/utils";
-import { ProjectsType } from "../server/get-projects";
+import { SkillCategoryType } from "../lib/skill.types";
 
-type Project = ProjectsType[number];
-
-interface SortableProjectCardProps {
-  project: Project;
+interface Props {
+  category: SkillCategoryType;
   children: React.ReactNode;
-  disabled: boolean;
+  disabled?: boolean;
 }
 
-export function SortableProjectCard({
-  project,
-  children,
-  disabled,
-}: SortableProjectCardProps) {
+export function SortableSkillCategory({ category, children, disabled }: Props) {
   const {
     attributes,
     listeners,
@@ -25,7 +19,10 @@ export function SortableProjectCard({
     transform,
     transition,
     isDragging,
-  } = useSortable({ id: project?.id, disabled });
+  } = useSortable({
+    id: category.id,
+    disabled,
+  });
 
   const style = {
     transform: CSS.Transform.toString(transform),
@@ -40,7 +37,7 @@ export function SortableProjectCard({
       {...listeners}
       className={cn(
         "cursor-grab active:cursor-grabbing",
-        isDragging && "opacity-80",
+        isDragging && "opacity-80 scale-[1.01]",
       )}
     >
       {children}

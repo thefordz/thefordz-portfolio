@@ -27,18 +27,20 @@ export type AggregateSkill = {
 }
 
 export type SkillAvgAggregateOutputType = {
+  yearsOfExperience: number | null
   order: number | null
 }
 
 export type SkillSumAggregateOutputType = {
+  yearsOfExperience: number | null
   order: number | null
 }
 
 export type SkillMinAggregateOutputType = {
   id: string | null
   name: string | null
-  iconUrl: string | null
-  experience: string | null
+  yearsOfExperience: number | null
+  level: $Enums.SkillLevel | null
   categoryId: string | null
   order: number | null
   createdAt: Date | null
@@ -48,8 +50,8 @@ export type SkillMinAggregateOutputType = {
 export type SkillMaxAggregateOutputType = {
   id: string | null
   name: string | null
-  iconUrl: string | null
-  experience: string | null
+  yearsOfExperience: number | null
+  level: $Enums.SkillLevel | null
   categoryId: string | null
   order: number | null
   createdAt: Date | null
@@ -59,8 +61,8 @@ export type SkillMaxAggregateOutputType = {
 export type SkillCountAggregateOutputType = {
   id: number
   name: number
-  iconUrl: number
-  experience: number
+  yearsOfExperience: number
+  level: number
   categoryId: number
   order: number
   createdAt: number
@@ -70,18 +72,20 @@ export type SkillCountAggregateOutputType = {
 
 
 export type SkillAvgAggregateInputType = {
+  yearsOfExperience?: true
   order?: true
 }
 
 export type SkillSumAggregateInputType = {
+  yearsOfExperience?: true
   order?: true
 }
 
 export type SkillMinAggregateInputType = {
   id?: true
   name?: true
-  iconUrl?: true
-  experience?: true
+  yearsOfExperience?: true
+  level?: true
   categoryId?: true
   order?: true
   createdAt?: true
@@ -91,8 +95,8 @@ export type SkillMinAggregateInputType = {
 export type SkillMaxAggregateInputType = {
   id?: true
   name?: true
-  iconUrl?: true
-  experience?: true
+  yearsOfExperience?: true
+  level?: true
   categoryId?: true
   order?: true
   createdAt?: true
@@ -102,8 +106,8 @@ export type SkillMaxAggregateInputType = {
 export type SkillCountAggregateInputType = {
   id?: true
   name?: true
-  iconUrl?: true
-  experience?: true
+  yearsOfExperience?: true
+  level?: true
   categoryId?: true
   order?: true
   createdAt?: true
@@ -200,8 +204,8 @@ export type SkillGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
 export type SkillGroupByOutputType = {
   id: string
   name: string
-  iconUrl: string | null
-  experience: string | null
+  yearsOfExperience: number | null
+  level: $Enums.SkillLevel | null
   categoryId: string
   order: number
   createdAt: Date
@@ -234,29 +238,29 @@ export type SkillWhereInput = {
   NOT?: Prisma.SkillWhereInput | Prisma.SkillWhereInput[]
   id?: Prisma.StringFilter<"Skill"> | string
   name?: Prisma.StringFilter<"Skill"> | string
-  iconUrl?: Prisma.StringNullableFilter<"Skill"> | string | null
-  experience?: Prisma.StringNullableFilter<"Skill"> | string | null
+  yearsOfExperience?: Prisma.IntNullableFilter<"Skill"> | number | null
+  level?: Prisma.EnumSkillLevelNullableFilter<"Skill"> | $Enums.SkillLevel | null
   categoryId?: Prisma.StringFilter<"Skill"> | string
   order?: Prisma.IntFilter<"Skill"> | number
   createdAt?: Prisma.DateTimeFilter<"Skill"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Skill"> | Date | string
   category?: Prisma.XOR<Prisma.SkillCategoryScalarRelationFilter, Prisma.SkillCategoryWhereInput>
   projects?: Prisma.ProjectSkillListRelationFilter
-  experiences?: Prisma.ExperienceSkillListRelationFilter
+  experienceSkills?: Prisma.ExperienceSkillListRelationFilter
 }
 
 export type SkillOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  iconUrl?: Prisma.SortOrderInput | Prisma.SortOrder
-  experience?: Prisma.SortOrderInput | Prisma.SortOrder
+  yearsOfExperience?: Prisma.SortOrderInput | Prisma.SortOrder
+  level?: Prisma.SortOrderInput | Prisma.SortOrder
   categoryId?: Prisma.SortOrder
   order?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   category?: Prisma.SkillCategoryOrderByWithRelationInput
   projects?: Prisma.ProjectSkillOrderByRelationAggregateInput
-  experiences?: Prisma.ExperienceSkillOrderByRelationAggregateInput
+  experienceSkills?: Prisma.ExperienceSkillOrderByRelationAggregateInput
 }
 
 export type SkillWhereUniqueInput = Prisma.AtLeast<{
@@ -265,22 +269,22 @@ export type SkillWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.SkillWhereInput[]
   NOT?: Prisma.SkillWhereInput | Prisma.SkillWhereInput[]
   name?: Prisma.StringFilter<"Skill"> | string
-  iconUrl?: Prisma.StringNullableFilter<"Skill"> | string | null
-  experience?: Prisma.StringNullableFilter<"Skill"> | string | null
+  yearsOfExperience?: Prisma.IntNullableFilter<"Skill"> | number | null
+  level?: Prisma.EnumSkillLevelNullableFilter<"Skill"> | $Enums.SkillLevel | null
   categoryId?: Prisma.StringFilter<"Skill"> | string
   order?: Prisma.IntFilter<"Skill"> | number
   createdAt?: Prisma.DateTimeFilter<"Skill"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Skill"> | Date | string
   category?: Prisma.XOR<Prisma.SkillCategoryScalarRelationFilter, Prisma.SkillCategoryWhereInput>
   projects?: Prisma.ProjectSkillListRelationFilter
-  experiences?: Prisma.ExperienceSkillListRelationFilter
+  experienceSkills?: Prisma.ExperienceSkillListRelationFilter
 }, "id">
 
 export type SkillOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  iconUrl?: Prisma.SortOrderInput | Prisma.SortOrder
-  experience?: Prisma.SortOrderInput | Prisma.SortOrder
+  yearsOfExperience?: Prisma.SortOrderInput | Prisma.SortOrder
+  level?: Prisma.SortOrderInput | Prisma.SortOrder
   categoryId?: Prisma.SortOrder
   order?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -298,8 +302,8 @@ export type SkillScalarWhereWithAggregatesInput = {
   NOT?: Prisma.SkillScalarWhereWithAggregatesInput | Prisma.SkillScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Skill"> | string
   name?: Prisma.StringWithAggregatesFilter<"Skill"> | string
-  iconUrl?: Prisma.StringNullableWithAggregatesFilter<"Skill"> | string | null
-  experience?: Prisma.StringNullableWithAggregatesFilter<"Skill"> | string | null
+  yearsOfExperience?: Prisma.IntNullableWithAggregatesFilter<"Skill"> | number | null
+  level?: Prisma.EnumSkillLevelNullableWithAggregatesFilter<"Skill"> | $Enums.SkillLevel | null
   categoryId?: Prisma.StringWithAggregatesFilter<"Skill"> | string
   order?: Prisma.IntWithAggregatesFilter<"Skill"> | number
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Skill"> | Date | string
@@ -309,60 +313,60 @@ export type SkillScalarWhereWithAggregatesInput = {
 export type SkillCreateInput = {
   id?: string
   name: string
-  iconUrl?: string | null
-  experience?: string | null
+  yearsOfExperience?: number | null
+  level?: $Enums.SkillLevel | null
   order?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   category: Prisma.SkillCategoryCreateNestedOneWithoutSkillsInput
   projects?: Prisma.ProjectSkillCreateNestedManyWithoutSkillInput
-  experiences?: Prisma.ExperienceSkillCreateNestedManyWithoutSkillInput
+  experienceSkills?: Prisma.ExperienceSkillCreateNestedManyWithoutSkillInput
 }
 
 export type SkillUncheckedCreateInput = {
   id?: string
   name: string
-  iconUrl?: string | null
-  experience?: string | null
+  yearsOfExperience?: number | null
+  level?: $Enums.SkillLevel | null
   categoryId: string
   order?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   projects?: Prisma.ProjectSkillUncheckedCreateNestedManyWithoutSkillInput
-  experiences?: Prisma.ExperienceSkillUncheckedCreateNestedManyWithoutSkillInput
+  experienceSkills?: Prisma.ExperienceSkillUncheckedCreateNestedManyWithoutSkillInput
 }
 
 export type SkillUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  iconUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  experience?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  yearsOfExperience?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  level?: Prisma.NullableEnumSkillLevelFieldUpdateOperationsInput | $Enums.SkillLevel | null
   order?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   category?: Prisma.SkillCategoryUpdateOneRequiredWithoutSkillsNestedInput
   projects?: Prisma.ProjectSkillUpdateManyWithoutSkillNestedInput
-  experiences?: Prisma.ExperienceSkillUpdateManyWithoutSkillNestedInput
+  experienceSkills?: Prisma.ExperienceSkillUpdateManyWithoutSkillNestedInput
 }
 
 export type SkillUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  iconUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  experience?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  yearsOfExperience?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  level?: Prisma.NullableEnumSkillLevelFieldUpdateOperationsInput | $Enums.SkillLevel | null
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   order?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projects?: Prisma.ProjectSkillUncheckedUpdateManyWithoutSkillNestedInput
-  experiences?: Prisma.ExperienceSkillUncheckedUpdateManyWithoutSkillNestedInput
+  experienceSkills?: Prisma.ExperienceSkillUncheckedUpdateManyWithoutSkillNestedInput
 }
 
 export type SkillCreateManyInput = {
   id?: string
   name: string
-  iconUrl?: string | null
-  experience?: string | null
+  yearsOfExperience?: number | null
+  level?: $Enums.SkillLevel | null
   categoryId: string
   order?: number
   createdAt?: Date | string
@@ -372,8 +376,8 @@ export type SkillCreateManyInput = {
 export type SkillUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  iconUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  experience?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  yearsOfExperience?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  level?: Prisma.NullableEnumSkillLevelFieldUpdateOperationsInput | $Enums.SkillLevel | null
   order?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -382,8 +386,8 @@ export type SkillUpdateManyMutationInput = {
 export type SkillUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  iconUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  experience?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  yearsOfExperience?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  level?: Prisma.NullableEnumSkillLevelFieldUpdateOperationsInput | $Enums.SkillLevel | null
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   order?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -403,8 +407,8 @@ export type SkillOrderByRelationAggregateInput = {
 export type SkillCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  iconUrl?: Prisma.SortOrder
-  experience?: Prisma.SortOrder
+  yearsOfExperience?: Prisma.SortOrder
+  level?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
   order?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -412,14 +416,15 @@ export type SkillCountOrderByAggregateInput = {
 }
 
 export type SkillAvgOrderByAggregateInput = {
+  yearsOfExperience?: Prisma.SortOrder
   order?: Prisma.SortOrder
 }
 
 export type SkillMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  iconUrl?: Prisma.SortOrder
-  experience?: Prisma.SortOrder
+  yearsOfExperience?: Prisma.SortOrder
+  level?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
   order?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -429,8 +434,8 @@ export type SkillMaxOrderByAggregateInput = {
 export type SkillMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  iconUrl?: Prisma.SortOrder
-  experience?: Prisma.SortOrder
+  yearsOfExperience?: Prisma.SortOrder
+  level?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
   order?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -438,6 +443,7 @@ export type SkillMinOrderByAggregateInput = {
 }
 
 export type SkillSumOrderByAggregateInput = {
+  yearsOfExperience?: Prisma.SortOrder
   order?: Prisma.SortOrder
 }
 
@@ -488,6 +494,18 @@ export type SkillUncheckedUpdateManyWithoutCategoryNestedInput = {
   deleteMany?: Prisma.SkillScalarWhereInput | Prisma.SkillScalarWhereInput[]
 }
 
+export type NullableIntFieldUpdateOperationsInput = {
+  set?: number | null
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
+}
+
+export type NullableEnumSkillLevelFieldUpdateOperationsInput = {
+  set?: $Enums.SkillLevel | null
+}
+
 export type SkillCreateNestedOneWithoutProjectsInput = {
   create?: Prisma.XOR<Prisma.SkillCreateWithoutProjectsInput, Prisma.SkillUncheckedCreateWithoutProjectsInput>
   connectOrCreate?: Prisma.SkillCreateOrConnectWithoutProjectsInput
@@ -502,42 +520,42 @@ export type SkillUpdateOneRequiredWithoutProjectsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.SkillUpdateToOneWithWhereWithoutProjectsInput, Prisma.SkillUpdateWithoutProjectsInput>, Prisma.SkillUncheckedUpdateWithoutProjectsInput>
 }
 
-export type SkillCreateNestedOneWithoutExperiencesInput = {
-  create?: Prisma.XOR<Prisma.SkillCreateWithoutExperiencesInput, Prisma.SkillUncheckedCreateWithoutExperiencesInput>
-  connectOrCreate?: Prisma.SkillCreateOrConnectWithoutExperiencesInput
+export type SkillCreateNestedOneWithoutExperienceSkillsInput = {
+  create?: Prisma.XOR<Prisma.SkillCreateWithoutExperienceSkillsInput, Prisma.SkillUncheckedCreateWithoutExperienceSkillsInput>
+  connectOrCreate?: Prisma.SkillCreateOrConnectWithoutExperienceSkillsInput
   connect?: Prisma.SkillWhereUniqueInput
 }
 
-export type SkillUpdateOneRequiredWithoutExperiencesNestedInput = {
-  create?: Prisma.XOR<Prisma.SkillCreateWithoutExperiencesInput, Prisma.SkillUncheckedCreateWithoutExperiencesInput>
-  connectOrCreate?: Prisma.SkillCreateOrConnectWithoutExperiencesInput
-  upsert?: Prisma.SkillUpsertWithoutExperiencesInput
+export type SkillUpdateOneRequiredWithoutExperienceSkillsNestedInput = {
+  create?: Prisma.XOR<Prisma.SkillCreateWithoutExperienceSkillsInput, Prisma.SkillUncheckedCreateWithoutExperienceSkillsInput>
+  connectOrCreate?: Prisma.SkillCreateOrConnectWithoutExperienceSkillsInput
+  upsert?: Prisma.SkillUpsertWithoutExperienceSkillsInput
   connect?: Prisma.SkillWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.SkillUpdateToOneWithWhereWithoutExperiencesInput, Prisma.SkillUpdateWithoutExperiencesInput>, Prisma.SkillUncheckedUpdateWithoutExperiencesInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.SkillUpdateToOneWithWhereWithoutExperienceSkillsInput, Prisma.SkillUpdateWithoutExperienceSkillsInput>, Prisma.SkillUncheckedUpdateWithoutExperienceSkillsInput>
 }
 
 export type SkillCreateWithoutCategoryInput = {
   id?: string
   name: string
-  iconUrl?: string | null
-  experience?: string | null
+  yearsOfExperience?: number | null
+  level?: $Enums.SkillLevel | null
   order?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   projects?: Prisma.ProjectSkillCreateNestedManyWithoutSkillInput
-  experiences?: Prisma.ExperienceSkillCreateNestedManyWithoutSkillInput
+  experienceSkills?: Prisma.ExperienceSkillCreateNestedManyWithoutSkillInput
 }
 
 export type SkillUncheckedCreateWithoutCategoryInput = {
   id?: string
   name: string
-  iconUrl?: string | null
-  experience?: string | null
+  yearsOfExperience?: number | null
+  level?: $Enums.SkillLevel | null
   order?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   projects?: Prisma.ProjectSkillUncheckedCreateNestedManyWithoutSkillInput
-  experiences?: Prisma.ExperienceSkillUncheckedCreateNestedManyWithoutSkillInput
+  experienceSkills?: Prisma.ExperienceSkillUncheckedCreateNestedManyWithoutSkillInput
 }
 
 export type SkillCreateOrConnectWithoutCategoryInput = {
@@ -572,8 +590,8 @@ export type SkillScalarWhereInput = {
   NOT?: Prisma.SkillScalarWhereInput | Prisma.SkillScalarWhereInput[]
   id?: Prisma.StringFilter<"Skill"> | string
   name?: Prisma.StringFilter<"Skill"> | string
-  iconUrl?: Prisma.StringNullableFilter<"Skill"> | string | null
-  experience?: Prisma.StringNullableFilter<"Skill"> | string | null
+  yearsOfExperience?: Prisma.IntNullableFilter<"Skill"> | number | null
+  level?: Prisma.EnumSkillLevelNullableFilter<"Skill"> | $Enums.SkillLevel | null
   categoryId?: Prisma.StringFilter<"Skill"> | string
   order?: Prisma.IntFilter<"Skill"> | number
   createdAt?: Prisma.DateTimeFilter<"Skill"> | Date | string
@@ -583,25 +601,25 @@ export type SkillScalarWhereInput = {
 export type SkillCreateWithoutProjectsInput = {
   id?: string
   name: string
-  iconUrl?: string | null
-  experience?: string | null
+  yearsOfExperience?: number | null
+  level?: $Enums.SkillLevel | null
   order?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   category: Prisma.SkillCategoryCreateNestedOneWithoutSkillsInput
-  experiences?: Prisma.ExperienceSkillCreateNestedManyWithoutSkillInput
+  experienceSkills?: Prisma.ExperienceSkillCreateNestedManyWithoutSkillInput
 }
 
 export type SkillUncheckedCreateWithoutProjectsInput = {
   id?: string
   name: string
-  iconUrl?: string | null
-  experience?: string | null
+  yearsOfExperience?: number | null
+  level?: $Enums.SkillLevel | null
   categoryId: string
   order?: number
   createdAt?: Date | string
   updatedAt?: Date | string
-  experiences?: Prisma.ExperienceSkillUncheckedCreateNestedManyWithoutSkillInput
+  experienceSkills?: Prisma.ExperienceSkillUncheckedCreateNestedManyWithoutSkillInput
 }
 
 export type SkillCreateOrConnectWithoutProjectsInput = {
@@ -623,32 +641,32 @@ export type SkillUpdateToOneWithWhereWithoutProjectsInput = {
 export type SkillUpdateWithoutProjectsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  iconUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  experience?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  yearsOfExperience?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  level?: Prisma.NullableEnumSkillLevelFieldUpdateOperationsInput | $Enums.SkillLevel | null
   order?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   category?: Prisma.SkillCategoryUpdateOneRequiredWithoutSkillsNestedInput
-  experiences?: Prisma.ExperienceSkillUpdateManyWithoutSkillNestedInput
+  experienceSkills?: Prisma.ExperienceSkillUpdateManyWithoutSkillNestedInput
 }
 
 export type SkillUncheckedUpdateWithoutProjectsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  iconUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  experience?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  yearsOfExperience?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  level?: Prisma.NullableEnumSkillLevelFieldUpdateOperationsInput | $Enums.SkillLevel | null
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   order?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  experiences?: Prisma.ExperienceSkillUncheckedUpdateManyWithoutSkillNestedInput
+  experienceSkills?: Prisma.ExperienceSkillUncheckedUpdateManyWithoutSkillNestedInput
 }
 
-export type SkillCreateWithoutExperiencesInput = {
+export type SkillCreateWithoutExperienceSkillsInput = {
   id?: string
   name: string
-  iconUrl?: string | null
-  experience?: string | null
+  yearsOfExperience?: number | null
+  level?: $Enums.SkillLevel | null
   order?: number
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -656,11 +674,11 @@ export type SkillCreateWithoutExperiencesInput = {
   projects?: Prisma.ProjectSkillCreateNestedManyWithoutSkillInput
 }
 
-export type SkillUncheckedCreateWithoutExperiencesInput = {
+export type SkillUncheckedCreateWithoutExperienceSkillsInput = {
   id?: string
   name: string
-  iconUrl?: string | null
-  experience?: string | null
+  yearsOfExperience?: number | null
+  level?: $Enums.SkillLevel | null
   categoryId: string
   order?: number
   createdAt?: Date | string
@@ -668,27 +686,27 @@ export type SkillUncheckedCreateWithoutExperiencesInput = {
   projects?: Prisma.ProjectSkillUncheckedCreateNestedManyWithoutSkillInput
 }
 
-export type SkillCreateOrConnectWithoutExperiencesInput = {
+export type SkillCreateOrConnectWithoutExperienceSkillsInput = {
   where: Prisma.SkillWhereUniqueInput
-  create: Prisma.XOR<Prisma.SkillCreateWithoutExperiencesInput, Prisma.SkillUncheckedCreateWithoutExperiencesInput>
+  create: Prisma.XOR<Prisma.SkillCreateWithoutExperienceSkillsInput, Prisma.SkillUncheckedCreateWithoutExperienceSkillsInput>
 }
 
-export type SkillUpsertWithoutExperiencesInput = {
-  update: Prisma.XOR<Prisma.SkillUpdateWithoutExperiencesInput, Prisma.SkillUncheckedUpdateWithoutExperiencesInput>
-  create: Prisma.XOR<Prisma.SkillCreateWithoutExperiencesInput, Prisma.SkillUncheckedCreateWithoutExperiencesInput>
+export type SkillUpsertWithoutExperienceSkillsInput = {
+  update: Prisma.XOR<Prisma.SkillUpdateWithoutExperienceSkillsInput, Prisma.SkillUncheckedUpdateWithoutExperienceSkillsInput>
+  create: Prisma.XOR<Prisma.SkillCreateWithoutExperienceSkillsInput, Prisma.SkillUncheckedCreateWithoutExperienceSkillsInput>
   where?: Prisma.SkillWhereInput
 }
 
-export type SkillUpdateToOneWithWhereWithoutExperiencesInput = {
+export type SkillUpdateToOneWithWhereWithoutExperienceSkillsInput = {
   where?: Prisma.SkillWhereInput
-  data: Prisma.XOR<Prisma.SkillUpdateWithoutExperiencesInput, Prisma.SkillUncheckedUpdateWithoutExperiencesInput>
+  data: Prisma.XOR<Prisma.SkillUpdateWithoutExperienceSkillsInput, Prisma.SkillUncheckedUpdateWithoutExperienceSkillsInput>
 }
 
-export type SkillUpdateWithoutExperiencesInput = {
+export type SkillUpdateWithoutExperienceSkillsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  iconUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  experience?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  yearsOfExperience?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  level?: Prisma.NullableEnumSkillLevelFieldUpdateOperationsInput | $Enums.SkillLevel | null
   order?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -696,11 +714,11 @@ export type SkillUpdateWithoutExperiencesInput = {
   projects?: Prisma.ProjectSkillUpdateManyWithoutSkillNestedInput
 }
 
-export type SkillUncheckedUpdateWithoutExperiencesInput = {
+export type SkillUncheckedUpdateWithoutExperienceSkillsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  iconUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  experience?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  yearsOfExperience?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  level?: Prisma.NullableEnumSkillLevelFieldUpdateOperationsInput | $Enums.SkillLevel | null
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   order?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -711,8 +729,8 @@ export type SkillUncheckedUpdateWithoutExperiencesInput = {
 export type SkillCreateManyCategoryInput = {
   id?: string
   name: string
-  iconUrl?: string | null
-  experience?: string | null
+  yearsOfExperience?: number | null
+  level?: $Enums.SkillLevel | null
   order?: number
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -721,32 +739,32 @@ export type SkillCreateManyCategoryInput = {
 export type SkillUpdateWithoutCategoryInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  iconUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  experience?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  yearsOfExperience?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  level?: Prisma.NullableEnumSkillLevelFieldUpdateOperationsInput | $Enums.SkillLevel | null
   order?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projects?: Prisma.ProjectSkillUpdateManyWithoutSkillNestedInput
-  experiences?: Prisma.ExperienceSkillUpdateManyWithoutSkillNestedInput
+  experienceSkills?: Prisma.ExperienceSkillUpdateManyWithoutSkillNestedInput
 }
 
 export type SkillUncheckedUpdateWithoutCategoryInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  iconUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  experience?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  yearsOfExperience?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  level?: Prisma.NullableEnumSkillLevelFieldUpdateOperationsInput | $Enums.SkillLevel | null
   order?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projects?: Prisma.ProjectSkillUncheckedUpdateManyWithoutSkillNestedInput
-  experiences?: Prisma.ExperienceSkillUncheckedUpdateManyWithoutSkillNestedInput
+  experienceSkills?: Prisma.ExperienceSkillUncheckedUpdateManyWithoutSkillNestedInput
 }
 
 export type SkillUncheckedUpdateManyWithoutCategoryInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  iconUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  experience?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  yearsOfExperience?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  level?: Prisma.NullableEnumSkillLevelFieldUpdateOperationsInput | $Enums.SkillLevel | null
   order?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -759,12 +777,12 @@ export type SkillUncheckedUpdateManyWithoutCategoryInput = {
 
 export type SkillCountOutputType = {
   projects: number
-  experiences: number
+  experienceSkills: number
 }
 
 export type SkillCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   projects?: boolean | SkillCountOutputTypeCountProjectsArgs
-  experiences?: boolean | SkillCountOutputTypeCountExperiencesArgs
+  experienceSkills?: boolean | SkillCountOutputTypeCountExperienceSkillsArgs
 }
 
 /**
@@ -787,7 +805,7 @@ export type SkillCountOutputTypeCountProjectsArgs<ExtArgs extends runtime.Types.
 /**
  * SkillCountOutputType without action
  */
-export type SkillCountOutputTypeCountExperiencesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type SkillCountOutputTypeCountExperienceSkillsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.ExperienceSkillWhereInput
 }
 
@@ -795,23 +813,23 @@ export type SkillCountOutputTypeCountExperiencesArgs<ExtArgs extends runtime.Typ
 export type SkillSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
-  iconUrl?: boolean
-  experience?: boolean
+  yearsOfExperience?: boolean
+  level?: boolean
   categoryId?: boolean
   order?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   category?: boolean | Prisma.SkillCategoryDefaultArgs<ExtArgs>
   projects?: boolean | Prisma.Skill$projectsArgs<ExtArgs>
-  experiences?: boolean | Prisma.Skill$experiencesArgs<ExtArgs>
+  experienceSkills?: boolean | Prisma.Skill$experienceSkillsArgs<ExtArgs>
   _count?: boolean | Prisma.SkillCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["skill"]>
 
 export type SkillSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
-  iconUrl?: boolean
-  experience?: boolean
+  yearsOfExperience?: boolean
+  level?: boolean
   categoryId?: boolean
   order?: boolean
   createdAt?: boolean
@@ -822,8 +840,8 @@ export type SkillSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
 export type SkillSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
-  iconUrl?: boolean
-  experience?: boolean
+  yearsOfExperience?: boolean
+  level?: boolean
   categoryId?: boolean
   order?: boolean
   createdAt?: boolean
@@ -834,19 +852,19 @@ export type SkillSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
 export type SkillSelectScalar = {
   id?: boolean
   name?: boolean
-  iconUrl?: boolean
-  experience?: boolean
+  yearsOfExperience?: boolean
+  level?: boolean
   categoryId?: boolean
   order?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type SkillOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "iconUrl" | "experience" | "categoryId" | "order" | "createdAt" | "updatedAt", ExtArgs["result"]["skill"]>
+export type SkillOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "yearsOfExperience" | "level" | "categoryId" | "order" | "createdAt" | "updatedAt", ExtArgs["result"]["skill"]>
 export type SkillInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   category?: boolean | Prisma.SkillCategoryDefaultArgs<ExtArgs>
   projects?: boolean | Prisma.Skill$projectsArgs<ExtArgs>
-  experiences?: boolean | Prisma.Skill$experiencesArgs<ExtArgs>
+  experienceSkills?: boolean | Prisma.Skill$experienceSkillsArgs<ExtArgs>
   _count?: boolean | Prisma.SkillCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type SkillIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -861,13 +879,13 @@ export type $SkillPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   objects: {
     category: Prisma.$SkillCategoryPayload<ExtArgs>
     projects: Prisma.$ProjectSkillPayload<ExtArgs>[]
-    experiences: Prisma.$ExperienceSkillPayload<ExtArgs>[]
+    experienceSkills: Prisma.$ExperienceSkillPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     name: string
-    iconUrl: string | null
-    experience: string | null
+    yearsOfExperience: number | null
+    level: $Enums.SkillLevel | null
     categoryId: string
     order: number
     createdAt: Date
@@ -1268,7 +1286,7 @@ export interface Prisma__SkillClient<T, Null = never, ExtArgs extends runtime.Ty
   readonly [Symbol.toStringTag]: "PrismaPromise"
   category<T extends Prisma.SkillCategoryDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.SkillCategoryDefaultArgs<ExtArgs>>): Prisma.Prisma__SkillCategoryClient<runtime.Types.Result.GetResult<Prisma.$SkillCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   projects<T extends Prisma.Skill$projectsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Skill$projectsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProjectSkillPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  experiences<T extends Prisma.Skill$experiencesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Skill$experiencesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ExperienceSkillPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  experienceSkills<T extends Prisma.Skill$experienceSkillsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Skill$experienceSkillsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ExperienceSkillPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1300,8 +1318,8 @@ export interface Prisma__SkillClient<T, Null = never, ExtArgs extends runtime.Ty
 export interface SkillFieldRefs {
   readonly id: Prisma.FieldRef<"Skill", 'String'>
   readonly name: Prisma.FieldRef<"Skill", 'String'>
-  readonly iconUrl: Prisma.FieldRef<"Skill", 'String'>
-  readonly experience: Prisma.FieldRef<"Skill", 'String'>
+  readonly yearsOfExperience: Prisma.FieldRef<"Skill", 'Int'>
+  readonly level: Prisma.FieldRef<"Skill", 'SkillLevel'>
   readonly categoryId: Prisma.FieldRef<"Skill", 'String'>
   readonly order: Prisma.FieldRef<"Skill", 'Int'>
   readonly createdAt: Prisma.FieldRef<"Skill", 'DateTime'>
@@ -1726,9 +1744,9 @@ export type Skill$projectsArgs<ExtArgs extends runtime.Types.Extensions.Internal
 }
 
 /**
- * Skill.experiences
+ * Skill.experienceSkills
  */
-export type Skill$experiencesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Skill$experienceSkillsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
    * Select specific fields to fetch from the ExperienceSkill
    */

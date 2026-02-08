@@ -125,8 +125,8 @@ export type SkillCategoryScalarFieldEnum = (typeof SkillCategoryScalarFieldEnum)
 export const SkillScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  iconUrl: 'iconUrl',
-  experience: 'experience',
+  yearsOfExperience: 'yearsOfExperience',
+  level: 'level',
   categoryId: 'categoryId',
   order: 'order',
   createdAt: 'createdAt',

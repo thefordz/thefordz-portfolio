@@ -198,7 +198,7 @@ export type ExperienceSkillScalarWhereWithAggregatesInput = {
 
 export type ExperienceSkillCreateInput = {
   experience: Prisma.ExperienceCreateNestedOneWithoutSkillsInput
-  skill: Prisma.SkillCreateNestedOneWithoutExperiencesInput
+  skill: Prisma.SkillCreateNestedOneWithoutExperienceSkillsInput
 }
 
 export type ExperienceSkillUncheckedCreateInput = {
@@ -208,7 +208,7 @@ export type ExperienceSkillUncheckedCreateInput = {
 
 export type ExperienceSkillUpdateInput = {
   experience?: Prisma.ExperienceUpdateOneRequiredWithoutSkillsNestedInput
-  skill?: Prisma.SkillUpdateOneRequiredWithoutExperiencesNestedInput
+  skill?: Prisma.SkillUpdateOneRequiredWithoutExperienceSkillsNestedInput
 }
 
 export type ExperienceSkillUncheckedUpdateInput = {
@@ -387,7 +387,7 @@ export type ExperienceSkillScalarWhereInput = {
 }
 
 export type ExperienceSkillCreateWithoutExperienceInput = {
-  skill: Prisma.SkillCreateNestedOneWithoutExperiencesInput
+  skill: Prisma.SkillCreateNestedOneWithoutExperienceSkillsInput
 }
 
 export type ExperienceSkillUncheckedCreateWithoutExperienceInput = {
@@ -441,7 +441,7 @@ export type ExperienceSkillCreateManyExperienceInput = {
 }
 
 export type ExperienceSkillUpdateWithoutExperienceInput = {
-  skill?: Prisma.SkillUpdateOneRequiredWithoutExperiencesNestedInput
+  skill?: Prisma.SkillUpdateOneRequiredWithoutExperienceSkillsNestedInput
 }
 
 export type ExperienceSkillUncheckedUpdateWithoutExperienceInput = {

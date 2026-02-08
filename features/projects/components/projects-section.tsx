@@ -46,7 +46,7 @@ export function ProjectsSection({ isAdmin, projects }: HeroSectionProps) {
         <AdminContentWrapper isAdmin={isAdmin} title="My Projects">
           <div>
             {isAdmin && (
-              <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition">
+              <div className="absolute top-4 right-4 md:opacity-0 md:group-hover:opacity-100 transition">
                 <Button onClick={() => setIsCreate(true)}>
                   <Plus className="h-4 w-4" />
                   Add New Project
@@ -55,7 +55,7 @@ export function ProjectsSection({ isAdmin, projects }: HeroSectionProps) {
             )}
           </div>
 
-          <div className="max-w-7xl mx-auto space-y-12">
+          <div className="max-w-7xl mx-auto space-y-6">
             {isAdmin ? (
               <ProjectsSortable projects={projects} onOpen={openDetail} />
             ) : (
@@ -88,7 +88,7 @@ export function ProjectsSection({ isAdmin, projects }: HeroSectionProps) {
         </DialogWrapper>
       )}
 
-      {/* Dialog For Edit Proiject */}
+      {/* Dialog For Edit Project */}
       {isAdmin && (
         <DialogWrapper
           title={cn("Edit", selectedProject?.title)}

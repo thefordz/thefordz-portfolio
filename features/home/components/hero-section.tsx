@@ -3,13 +3,12 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Pen } from "lucide-react";
+import { Edit, Mouse } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { DialogWrapper } from "@/features/shared/components/dialog-wrapper";
 import { ProfileForm } from "./form/profile-form";
 import { ProfileFormValues } from "../lib/profile.validation";
-import { getGithub } from "../lib/profile.utils";
 import { AdminContentWrapper } from "@/features/shared/components/admin-content-wrapper";
 
 interface HeroSectionProps {
@@ -23,38 +22,30 @@ export function HeroSection({
 }: HeroSectionProps) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const github = getGithub(profile.socials);
-
   return (
     <>
       <section
         id="introduce"
-        className="min-h-[calc(100vh-64px)] flex items-center"
+        className="relative flex items-center min-h-[calc(100vh-64px)] "
       >
+        <div className="hidden md:flex absolute w-full bottom-6 justify-center">
+          <Mouse className="animate-bounce opacity-60" />
+        </div>
+
         <AdminContentWrapper isAdmin={isAdmin}>
           {isAdmin && (
-            <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition">
-              <Button size="icon" onClick={() => setIsOpen(true)}>
-                <Pen className="h-4 w-4" />
+            <div className="absolute top-4 right-4 ">
+              <Button className="rounded-sm" onClick={() => setIsOpen(true)}>
+                <Edit className="w-4 h-4" />
+                Edit
               </Button>
             </div>
           )}
 
-          <div className="max-w-7xl mx-auto space-y-12">
+          <div className="max-w-6xl mx-auto space-y-10">
             <div className="flex items-center gap-4">
               {profile?.avatarUrl && (
-                <div
-                  className="
-                  relative
-                  sm:w-14 sm:h-14
-                  md:w-16 md:h-16
-                  lg:w-18 lg:h-18
-                  xl:w-22 xl:h-22
-                  rounded-full
-                  overflow-hidden
-                  shrink-0
-                "
-                >
+                <div className="relative w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 rounded-full overflow-hidden shrink-0 border">
                   <Image
                     src={profile.avatarUrl}
                     alt={profile.fullName}
@@ -65,31 +56,35 @@ export function HeroSection({
                 </div>
               )}
 
-              <p className="text-xs sm:text-sm uppercase tracking-[0.25em] text-muted-foreground">
+              <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
                 {profile?.fullName}
               </p>
             </div>
 
+            {/* Headline */}
             <h1
-              className="
-              font-semibold tracking-tight
-              text-3xl sm:text-4xl md:text-5xl lg:text-6xl
-              leading-[1.05]
-              max-w-6xl
-            "
+              className="font-semibold tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.08] max-w-5xl
+        "
             >
               {profile?.headline}
             </h1>
 
+            {/* Bio */}
             {profile?.bio && (
-              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-4xl whitespace-pre-line">
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-3xl whitespace-pre-line">
                 {profile?.bio}
               </p>
             )}
 
-            <div className="flex flex-wrap items-center gap-5 pt-6">
+            {/* CTA */}
+            <div className="flex flex-wrap items-center gap-6 pt-4">
               {profile.resumeUrl && (
-                <Button size="lg" asChild>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-sm px-8 border-2"
+                  asChild
+                >
                   <a href={profile.resumeUrl} target="_blank">
                     View Resume
                   </a>
@@ -100,18 +95,8 @@ export function HeroSection({
                 href="/projects"
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition"
               >
-                View Projects →
+                View My Projects →
               </Link>
-
-              {github && (
-                <a
-                  href={github.url}
-                  target="_blank"
-                  className="text-sm text-muted-foreground hover:text-foreground transition"
-                >
-                  GitHub
-                </a>
-              )}
             </div>
           </div>
         </AdminContentWrapper>

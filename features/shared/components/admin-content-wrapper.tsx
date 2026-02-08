@@ -5,6 +5,7 @@ interface AdminSectionWrapperProps {
   children: React.ReactNode;
   className?: string;
   title?: string;
+  description?: string;
 }
 
 export function AdminContentWrapper({
@@ -12,12 +13,13 @@ export function AdminContentWrapper({
   children,
   className,
   title,
+  description,
 }: AdminSectionWrapperProps) {
   return (
     <div
       className={cn(
         "relative rounded-xl transition w-full",
-        "px-3 md:px-10 lg:px-16",
+        "px-6 md:px-10 ",
         isAdmin &&
           "group hover:bg-secondary/50 hover:shadow-lg border border-transparent hover:border-border",
         className,
@@ -25,7 +27,10 @@ export function AdminContentWrapper({
     >
       <div className={cn("py-9 md:py-12 lg:py-15 space-y-6")}>
         {title && (
-          <span className="font-medium text-xl md:text-4xl ">{title}</span>
+          <div className="space-y-2">
+            <h2 className="text-3xl font-semibold tracking-tight">{title}</h2>
+            <p className="text-muted-foreground text-sm">{description}</p>
+          </div>
         )}
 
         {children}
