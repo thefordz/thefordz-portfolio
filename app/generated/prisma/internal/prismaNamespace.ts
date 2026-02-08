@@ -1537,7 +1537,9 @@ export const SkillScalarFieldEnum = {
   iconUrl: 'iconUrl',
   experience: 'experience',
   categoryId: 'categoryId',
-  order: 'order'
+  order: 'order',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type SkillScalarFieldEnum = (typeof SkillScalarFieldEnum)[keyof typeof SkillScalarFieldEnum]
@@ -1546,17 +1548,16 @@ export type SkillScalarFieldEnum = (typeof SkillScalarFieldEnum)[keyof typeof Sk
 export const ProjectScalarFieldEnum = {
   id: 'id',
   title: 'title',
-  slug: 'slug',
   summary: 'summary',
   description: 'description',
-  coverImage: 'coverImage',
   images: 'images',
   projectType: 'projectType',
   liveUrl: 'liveUrl',
   githubUrl: 'githubUrl',
   isFeatured: 'isFeatured',
   order: 'order',
-  createdAt: 'createdAt'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type ProjectScalarFieldEnum = (typeof ProjectScalarFieldEnum)[keyof typeof ProjectScalarFieldEnum]
@@ -1585,7 +1586,8 @@ export const ExperienceScalarFieldEnum = {
   isCurrent: 'isCurrent',
   logoUrl: 'logoUrl',
   order: 'order',
-  createdAt: 'createdAt'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type ExperienceScalarFieldEnum = (typeof ExperienceScalarFieldEnum)[keyof typeof ExperienceScalarFieldEnum]
@@ -1616,7 +1618,9 @@ export const EducationScalarFieldEnum = {
   endYear: 'endYear',
   logoUrl: 'logoUrl',
   description: 'description',
-  order: 'order'
+  order: 'order',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type EducationScalarFieldEnum = (typeof EducationScalarFieldEnum)[keyof typeof EducationScalarFieldEnum]

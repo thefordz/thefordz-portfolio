@@ -48,6 +48,8 @@ export type EducationMinAggregateOutputType = {
   logoUrl: string | null
   description: string | null
   order: number | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type EducationMaxAggregateOutputType = {
@@ -60,6 +62,8 @@ export type EducationMaxAggregateOutputType = {
   logoUrl: string | null
   description: string | null
   order: number | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type EducationCountAggregateOutputType = {
@@ -72,6 +76,8 @@ export type EducationCountAggregateOutputType = {
   logoUrl: number
   description: number
   order: number
+  createdAt: number
+  updatedAt: number
   _all: number
 }
 
@@ -98,6 +104,8 @@ export type EducationMinAggregateInputType = {
   logoUrl?: true
   description?: true
   order?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type EducationMaxAggregateInputType = {
@@ -110,6 +118,8 @@ export type EducationMaxAggregateInputType = {
   logoUrl?: true
   description?: true
   order?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type EducationCountAggregateInputType = {
@@ -122,6 +132,8 @@ export type EducationCountAggregateInputType = {
   logoUrl?: true
   description?: true
   order?: true
+  createdAt?: true
+  updatedAt?: true
   _all?: true
 }
 
@@ -221,6 +233,8 @@ export type EducationGroupByOutputType = {
   logoUrl: string | null
   description: string | null
   order: number
+  createdAt: Date
+  updatedAt: Date
   _count: EducationCountAggregateOutputType | null
   _avg: EducationAvgAggregateOutputType | null
   _sum: EducationSumAggregateOutputType | null
@@ -256,6 +270,8 @@ export type EducationWhereInput = {
   logoUrl?: Prisma.StringNullableFilter<"Education"> | string | null
   description?: Prisma.StringNullableFilter<"Education"> | string | null
   order?: Prisma.IntFilter<"Education"> | number
+  createdAt?: Prisma.DateTimeFilter<"Education"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Education"> | Date | string
 }
 
 export type EducationOrderByWithRelationInput = {
@@ -268,6 +284,8 @@ export type EducationOrderByWithRelationInput = {
   logoUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   order?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type EducationWhereUniqueInput = Prisma.AtLeast<{
@@ -283,6 +301,8 @@ export type EducationWhereUniqueInput = Prisma.AtLeast<{
   logoUrl?: Prisma.StringNullableFilter<"Education"> | string | null
   description?: Prisma.StringNullableFilter<"Education"> | string | null
   order?: Prisma.IntFilter<"Education"> | number
+  createdAt?: Prisma.DateTimeFilter<"Education"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Education"> | Date | string
 }, "id">
 
 export type EducationOrderByWithAggregationInput = {
@@ -295,6 +315,8 @@ export type EducationOrderByWithAggregationInput = {
   logoUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   order?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.EducationCountOrderByAggregateInput
   _avg?: Prisma.EducationAvgOrderByAggregateInput
   _max?: Prisma.EducationMaxOrderByAggregateInput
@@ -315,6 +337,8 @@ export type EducationScalarWhereWithAggregatesInput = {
   logoUrl?: Prisma.StringNullableWithAggregatesFilter<"Education"> | string | null
   description?: Prisma.StringNullableWithAggregatesFilter<"Education"> | string | null
   order?: Prisma.IntWithAggregatesFilter<"Education"> | number
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"Education"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Education"> | Date | string
 }
 
 export type EducationCreateInput = {
@@ -327,6 +351,8 @@ export type EducationCreateInput = {
   logoUrl?: string | null
   description?: string | null
   order?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type EducationUncheckedCreateInput = {
@@ -339,6 +365,8 @@ export type EducationUncheckedCreateInput = {
   logoUrl?: string | null
   description?: string | null
   order?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type EducationUpdateInput = {
@@ -351,6 +379,8 @@ export type EducationUpdateInput = {
   logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   order?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type EducationUncheckedUpdateInput = {
@@ -363,6 +393,8 @@ export type EducationUncheckedUpdateInput = {
   logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   order?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type EducationCreateManyInput = {
@@ -375,6 +407,8 @@ export type EducationCreateManyInput = {
   logoUrl?: string | null
   description?: string | null
   order?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type EducationUpdateManyMutationInput = {
@@ -387,6 +421,8 @@ export type EducationUpdateManyMutationInput = {
   logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   order?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type EducationUncheckedUpdateManyInput = {
@@ -399,6 +435,8 @@ export type EducationUncheckedUpdateManyInput = {
   logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   order?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type EducationCountOrderByAggregateInput = {
@@ -411,6 +449,8 @@ export type EducationCountOrderByAggregateInput = {
   logoUrl?: Prisma.SortOrder
   description?: Prisma.SortOrder
   order?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type EducationAvgOrderByAggregateInput = {
@@ -429,6 +469,8 @@ export type EducationMaxOrderByAggregateInput = {
   logoUrl?: Prisma.SortOrder
   description?: Prisma.SortOrder
   order?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type EducationMinOrderByAggregateInput = {
@@ -441,6 +483,8 @@ export type EducationMinOrderByAggregateInput = {
   logoUrl?: Prisma.SortOrder
   description?: Prisma.SortOrder
   order?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type EducationSumOrderByAggregateInput = {
@@ -461,6 +505,8 @@ export type EducationSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   logoUrl?: boolean
   description?: boolean
   order?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }, ExtArgs["result"]["education"]>
 
 export type EducationSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -473,6 +519,8 @@ export type EducationSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ext
   logoUrl?: boolean
   description?: boolean
   order?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }, ExtArgs["result"]["education"]>
 
 export type EducationSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -485,6 +533,8 @@ export type EducationSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
   logoUrl?: boolean
   description?: boolean
   order?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }, ExtArgs["result"]["education"]>
 
 export type EducationSelectScalar = {
@@ -497,9 +547,11 @@ export type EducationSelectScalar = {
   logoUrl?: boolean
   description?: boolean
   order?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }
 
-export type EducationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "institution" | "degree" | "field" | "startYear" | "endYear" | "logoUrl" | "description" | "order", ExtArgs["result"]["education"]>
+export type EducationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "institution" | "degree" | "field" | "startYear" | "endYear" | "logoUrl" | "description" | "order" | "createdAt" | "updatedAt", ExtArgs["result"]["education"]>
 
 export type $EducationPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Education"
@@ -514,6 +566,8 @@ export type $EducationPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     logoUrl: string | null
     description: string | null
     order: number
+    createdAt: Date
+    updatedAt: Date
   }, ExtArgs["result"]["education"]>
   composites: {}
 }
@@ -946,6 +1000,8 @@ export interface EducationFieldRefs {
   readonly logoUrl: Prisma.FieldRef<"Education", 'String'>
   readonly description: Prisma.FieldRef<"Education", 'String'>
   readonly order: Prisma.FieldRef<"Education", 'Int'>
+  readonly createdAt: Prisma.FieldRef<"Education", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"Education", 'DateTime'>
 }
     
 

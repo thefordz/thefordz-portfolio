@@ -4,9 +4,11 @@ import { PROFILE_ID } from "@/lib/constants";
 import prisma from "@/lib/prisma";
 
 export async function getProfile() {
+  const profile = await ensureProfileExists();
+
   return prisma.profile.findUnique({
     where: {
-      id: PROFILE_ID,
+      id: profile.id,
     },
     include: {
       socials: {
@@ -47,3 +49,19 @@ export async function getProfileForSidebar() {
 export type ProfileSidebarType = Awaited<
   ReturnType<typeof getProfileForSidebar>
 >;
+
+async function ensureProfileExists() {
+  const existing = await prisma.profile.findUnique({
+    where: { id: "PROFILE_SINGLETON" },
+  });
+
+  if (existing) return existing;
+
+  return prisma.profile.create({
+    data: {
+      id: "PROFILE_SINGLETON",
+      fullName: "Unnamed",
+      headline: "",
+    },
+  });
+}

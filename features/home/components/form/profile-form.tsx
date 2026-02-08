@@ -79,11 +79,9 @@ export function ProfileForm({
         id="profile-form"
         className="flex flex-col h-full"
       >
-        {/* Avatar Section */}
         <div className="mb-6">
           <AvatarField />
         </div>
-        {/* Basic Info */}
         <div className="grid gap-6 md:grid-cols-2 space-y-6">
           <FormField
             name="fullName"
@@ -111,7 +109,6 @@ export function ProfileForm({
             )}
           />
         </div>
-        {/* Bio */}
         <FormField
           name="bio"
           render={({ field }) => (
@@ -124,7 +121,6 @@ export function ProfileForm({
           )}
         />
         <Separator />
-        {/* Meta Section */}
         <div className="grid gap-6 md:grid-cols-2">
           <FormField
             name="location"
@@ -151,7 +147,6 @@ export function ProfileForm({
           />
         </div>
         <Separator />
-        {/* Social Section */}
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <h3 className="text-sm font-semibold">Social links</h3>
@@ -173,7 +168,6 @@ export function ProfileForm({
           <ResumeField />
           <SocialLinksField />
         </div>
-        {/* FOOTER */}
         <div className="flex justify-between bg-background gap-2 py-4 sticky bottom-0 border-t">
           <Button
             type="button"

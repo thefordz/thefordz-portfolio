@@ -35,7 +35,7 @@ export function DialogWrapper({
           className,
         )}
       >
-        <DialogHeader className={cn(!title && "sr-only")}>
+        <DialogHeader className={cn(!title && "sr-only", " border-b pb-5")}>
           <DialogTitle className={cn(!title && "sr-only")}>{title}</DialogTitle>
           <DialogDescription className={cn(!description && "sr-only")}>
             {description}
@@ -43,7 +43,7 @@ export function DialogWrapper({
         </DialogHeader>
 
         {children}
-      </DialogContent>
+      </DialogContent>{" "}
     </Dialog>
   );
 }

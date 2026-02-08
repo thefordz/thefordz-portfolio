@@ -9,3 +9,12 @@ export const getHashFromUrl = (url: string) => {
   const index = url.indexOf("#");
   return index >= 0 ? url.slice(index) : "";
 };
+
+export function slugify(input: string) {
+  return input
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-");
+}

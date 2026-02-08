@@ -9,8 +9,8 @@ import { Button } from "@/components/ui/button";
 import { DialogWrapper } from "@/features/shared/components/dialog-wrapper";
 import { ProfileForm } from "./form/profile-form";
 import { ProfileFormValues } from "../lib/profile.validation";
-import { cn } from "@/lib/utils";
 import { getGithub } from "../lib/profile.utils";
+import { AdminContentWrapper } from "@/features/shared/components/admin-content-wrapper";
 
 interface HeroSectionProps {
   isAdmin: boolean;
@@ -31,14 +31,7 @@ export function HeroSection({
         id="introduce"
         className="min-h-[calc(100vh-64px)] flex items-center"
       >
-        <div
-          className={cn(
-            "w-full relative rounded-xl transition",
-            "px-4 sm:px-6 md:px-10 lg:px-16",
-            "py-16 md:py-20 lg:py-28",
-            isAdmin && "hover:bg-secondary hover:shadow-2xl group",
-          )}
-        >
+        <AdminContentWrapper isAdmin={isAdmin}>
           {isAdmin && (
             <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition">
               <Button size="icon" onClick={() => setIsOpen(true)}>
@@ -121,7 +114,7 @@ export function HeroSection({
               )}
             </div>
           </div>
-        </div>
+        </AdminContentWrapper>
       </section>
 
       {isAdmin && (

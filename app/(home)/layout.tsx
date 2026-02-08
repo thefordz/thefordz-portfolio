@@ -15,7 +15,7 @@ export default async function HomeLayout({
       <AppSidebar profile={profile} />
       <main className="w-full">
         <Header />
-        <div className="px-6 max-w-7xl mx-auto">{children}</div>
+        <div className="px-6 max-w-7xl mx-auto py-6">{children}</div>
       </main>
     </SidebarProvider>
   );

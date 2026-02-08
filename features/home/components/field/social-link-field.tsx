@@ -95,7 +95,6 @@ function SortableSocialItem({ id, index, onRemove }: SortableSocialItemProps) {
       style={style}
       className="flex items-center gap-3 rounded-md border bg-background p-2"
     >
-      {/* Drag handle */}
       <Button
         variant={"ghost"}
         type="button"
@@ -106,7 +105,6 @@ function SortableSocialItem({ id, index, onRemove }: SortableSocialItemProps) {
         <GripVertical className="h-4 w-4" />
       </Button>
 
-      {/* Icon + URL */}
       <FormField
         control={undefined}
         name={`socials.${index}.url`}
@@ -125,7 +123,6 @@ function SortableSocialItem({ id, index, onRemove }: SortableSocialItemProps) {
         )}
       />
 
-      {/* Remove */}
       <Button type="button" variant="ghost" size="icon" onClick={onRemove}>
         <Trash2 className="h-4 w-4" />
       </Button>
