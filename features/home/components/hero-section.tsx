@@ -107,14 +107,12 @@ export function HeroSection({
           title="Edit Profile"
           isOpen={isOpen}
           onOpenChange={setIsOpen}
-          className="h-fit"
+          className="h-fit "
         >
-          <div className="overflow-y-auto px-2">
-            <ProfileForm
-              initialValues={profile}
-              onClose={() => setIsOpen(false)}
-            />
-          </div>
+          <ProfileForm
+            initialValues={profile}
+            onClose={() => setIsOpen(false)}
+          />
         </DialogWrapper>
       )}
     </>

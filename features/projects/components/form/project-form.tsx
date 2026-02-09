@@ -104,7 +104,7 @@ export function ProjectsForm({
           </div>
         </div>
 
-        <div className="sticky bottom-0 bg-background/80 backdrop-blur border-t py-5 flex w-full justify-between gap-4">
+        <div className="sticky bottom-0 bg-background py-5 flex w-full justify-between gap-4">
           <Button
             type="button"
             variant="ghost"

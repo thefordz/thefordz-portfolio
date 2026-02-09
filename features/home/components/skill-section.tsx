@@ -107,13 +107,11 @@ export function SkillSection({ isAdmin, categories }: SkillSectionProps) {
           onOpenChange={setIsDialogOpen}
           className="h-fit sm:max-w-md"
         >
-          <div className="overflow-y-auto px-2">
-            <SkillCategoryForm
-              categoryId={selected?.id}
-              initialValues={selected ?? undefined}
-              onClose={() => setIsDialogOpen(false)}
-            />
-          </div>
+          <SkillCategoryForm
+            categoryId={selected?.id}
+            initialValues={selected ?? undefined}
+            onClose={() => setIsDialogOpen(false)}
+          />
         </DialogWrapper>
       )}
 

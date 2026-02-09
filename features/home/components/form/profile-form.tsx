@@ -168,7 +168,7 @@ export function ProfileForm({
           <ResumeField />
           <SocialLinksField />
         </div>
-        <div className="flex justify-between bg-background gap-2 py-4 sticky bottom-0 border-t">
+        <div className="flex justify-between bg-background gap-2 py-4  sticky bottom-0 ">
           <Button
             type="button"
             variant="ghost"

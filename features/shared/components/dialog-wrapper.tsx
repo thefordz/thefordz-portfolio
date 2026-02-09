@@ -31,19 +31,23 @@ export function DialogWrapper({
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
       <DialogContent
         className={cn(
-          "sm:max-w-5xl w-[90%] h-full max-h-[80%] flex flex-col pb-0",
+          "sm:max-w-5xl w-[90%] px-0 gap-0  h-full max-h-[80%] flex flex-col pb-0",
           className,
         )}
       >
-        <DialogHeader className={cn(!title && "sr-only", " border-b pb-5")}>
+        <DialogHeader
+          className={cn(!title && "sr-only", " border-b pb-5 px-6")}
+        >
           <DialogTitle className={cn(!title && "sr-only")}>{title}</DialogTitle>
           <DialogDescription className={cn(!description && "sr-only")}>
             {description}
           </DialogDescription>
         </DialogHeader>
 
-        {children}
-      </DialogContent>{" "}
+        <div className="w-full h-full flex flex-col overflow-y-auto px-6 pt-6">
+          {children}
+        </div>
+      </DialogContent>
     </Dialog>
   );
 }

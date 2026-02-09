@@ -92,12 +92,10 @@ export function ProjectsSection({
           onOpenChange={setIsCreate}
           className="h-fit w-[90%] sm:max-w-7xl"
         >
-          <div className="overflow-y-auto px-2">
-            <ProjectsForm
-              onClose={() => setIsCreate(false)}
-              categories={categories}
-            />
-          </div>
+          <ProjectsForm
+            onClose={() => setIsCreate(false)}
+            categories={categories}
+          />
         </DialogWrapper>
       )}
 
@@ -109,14 +107,12 @@ export function ProjectsSection({
           onOpenChange={setIsEdit}
           className="h-fit w-[90%] sm:max-w-7xl"
         >
-          <div className="overflow-y-auto px-2">
-            <ProjectsForm
-              categories={categories}
-              projectId={selectedProject?.id}
-              initialValues={initialValues}
-              onClose={() => setIsEdit(false)}
-            />
-          </div>
+          <ProjectsForm
+            categories={categories}
+            projectId={selectedProject?.id}
+            initialValues={initialValues}
+            onClose={() => setIsEdit(false)}
+          />
         </DialogWrapper>
       )}
 
