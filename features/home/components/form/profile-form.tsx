@@ -14,7 +14,6 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Plus } from "lucide-react";
-import { Separator } from "@/components/ui/separator";
 import { useTransition } from "react";
 import { toast } from "sonner";
 import {
@@ -26,6 +25,7 @@ import { errorToast } from "@/features/shared/errors/toast.error";
 import { SocialLinksField } from "../field/social-link-field";
 import { AvatarField } from "../field/avatar-field";
 import { ResumeField } from "../field/resume-field";
+import { CardWrapper } from "@/features/shared/components/card-wrapper";
 
 interface ProfileFormProps {
   initialValues: ProfileFormValues;
@@ -77,77 +77,85 @@ export function ProfileForm({
       <form
         onSubmit={form.handleSubmit(onSubmit)}
         id="profile-form"
-        className="flex flex-col h-full"
+        className="flex flex-col h-full space-y-6"
       >
-        <div className="mb-6">
-          <AvatarField />
-        </div>
-        <div className="grid gap-6 md:grid-cols-2 space-y-6">
-          <FormField
-            name="fullName"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Full name</FormLabel>
-                <FormControl>
-                  <Input {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+        <CardWrapper title="Basic infomation">
+          <div className="mb-6">
+            <AvatarField />
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 ">
+            <FormField
+              name="fullName"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Full name</FormLabel>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
+            <FormField
+              name="headline"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Headline</FormLabel>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
           <FormField
-            name="headline"
+            name="bio"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Headline</FormLabel>
+                <FormLabel>Bio</FormLabel>
                 <FormControl>
-                  <Input {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        </div>
-        <FormField
-          name="bio"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Bio</FormLabel>
-              <FormControl>
-                <Textarea rows={5} {...field} />
-              </FormControl>
-            </FormItem>
-          )}
-        />
-        <Separator />
-        <div className="grid gap-6 md:grid-cols-2">
-          <FormField
-            name="location"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Location</FormLabel>
-                <FormControl>
-                  <Input {...field} />
+                  <Textarea rows={5} {...field} />
                 </FormControl>
               </FormItem>
             )}
           />
+        </CardWrapper>
+        <CardWrapper>
+          <div className="grid gap-6 md:grid-cols-2">
+            <FormField
+              name="location"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Location</FormLabel>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
 
-          <FormField
-            name="availability"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Availability</FormLabel>
-                <FormControl>
-                  <Input {...field} />
-                </FormControl>
-              </FormItem>
-            )}
-          />
-        </div>
-        <Separator />
-        <div className="space-y-4">
+            <FormField
+              name="availability"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Availability</FormLabel>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+          </div>
+        </CardWrapper>
+        <CardWrapper title="Resume Management">
+          <ResumeField />
+        </CardWrapper>
+        <CardWrapper
+          title="Social Media"
+          description="Add your email (mailto link) and GitHub profile to enable the contact button and showcase your work."
+        >
           <div className="flex items-center justify-between">
             <h3 className="text-sm font-semibold">Social links</h3>
             <Button
@@ -165,10 +173,9 @@ export function ProfileForm({
               Add
             </Button>
           </div>
-          <ResumeField />
           <SocialLinksField />
-        </div>
-        <div className="flex justify-between bg-background gap-2 py-4  sticky bottom-0 ">
+        </CardWrapper>
+        <div className="dialog-footer">
           <Button
             type="button"
             variant="ghost"

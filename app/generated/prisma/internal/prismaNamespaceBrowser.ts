@@ -58,7 +58,6 @@ export const ModelName = {
   Project: 'Project',
   ProjectSkill: 'ProjectSkill',
   Experience: 'Experience',
-  ExperienceSkill: 'ExperienceSkill',
   ExperienceProject: 'ExperienceProject',
   Education: 'Education',
   User: 'User',
@@ -182,14 +181,6 @@ export const ExperienceScalarFieldEnum = {
 } as const
 
 export type ExperienceScalarFieldEnum = (typeof ExperienceScalarFieldEnum)[keyof typeof ExperienceScalarFieldEnum]
-
-
-export const ExperienceSkillScalarFieldEnum = {
-  experienceId: 'experienceId',
-  skillId: 'skillId'
-} as const
-
-export type ExperienceSkillScalarFieldEnum = (typeof ExperienceSkillScalarFieldEnum)[keyof typeof ExperienceSkillScalarFieldEnum]
 
 
 export const ExperienceProjectScalarFieldEnum = {

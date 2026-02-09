@@ -75,11 +75,6 @@ export type ProjectSkill = Prisma.ProjectSkillModel
  */
 export type Experience = Prisma.ExperienceModel
 /**
- * Model ExperienceSkill
- * 
- */
-export type ExperienceSkill = Prisma.ExperienceSkillModel
-/**
  * Model ExperienceProject
  * 
  */

@@ -1,4 +1,4 @@
-import { ProjectType } from "../server/get-project";
+import { ProjectType } from "./project.types";
 import { ProjectFormValues } from "./project.validation";
 
 export function mapProjectToFormSafe(

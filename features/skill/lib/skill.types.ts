@@ -20,3 +20,8 @@ export interface SkillCategoryOption {
   name: string;
   skills: SkillOption[];
 }
+
+export interface SkillOption {
+  id: string;
+  name: string;
+}

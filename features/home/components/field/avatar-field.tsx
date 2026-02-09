@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  FormField,
-  FormItem,
-  FormLabel,
-  FormControl,
-} from "@/components/ui/form";
+import { FormField, FormItem, FormControl } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { ImagePlus } from "lucide-react";
 import Image from "next/image";
@@ -28,11 +23,8 @@ export function AvatarField() {
       name="avatarUrl"
       render={({ field }) => (
         <FormItem>
-          <FormLabel>Avatar</FormLabel>
-
           <FormControl>
             <div className="flex items-center gap-4">
-              {/* Preview */}
               <div className="relative h-40 w-40 overflow-hidden rounded-full bg-muted">
                 {field.value && (
                   <Image

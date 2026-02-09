@@ -104,7 +104,7 @@ export function ProjectsForm({
           </div>
         </div>
 
-        <div className="sticky bottom-0 bg-background py-5 flex w-full justify-between gap-4">
+        <div className="dialog-footer">
           <Button
             type="button"
             variant="ghost"

@@ -19,7 +19,7 @@ export function AdminContentWrapper({
     <div
       className={cn(
         "relative rounded-xl transition w-full",
-        "px-6 md:px-10 my-6 ",
+        "px-6 md:px-10  ",
         isAdmin &&
           "group hover:bg-secondary/50 hover:shadow-lg border border-transparent hover:border-border",
         className,

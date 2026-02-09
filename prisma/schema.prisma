@@ -92,8 +92,7 @@ model Skill {
 
   order Int @default(0)
 
-  projects         ProjectSkill[]
-  experienceSkills ExperienceSkill[]
+  projects ProjectSkill[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -155,21 +154,10 @@ model Experience {
   logoUrl String?
   order   Int     @default(0)
 
-  skills ExperienceSkill[]
-
-  createdAt          DateTime            @default(now())
-  updatedAt          DateTime            @updatedAt
   experienceProjects ExperienceProject[]
-}
 
-model ExperienceSkill {
-  experienceId String
-  skillId      String
-
-  experience Experience @relation(fields: [experienceId], references: [id], onDelete: Cascade)
-  skill      Skill      @relation(fields: [skillId], references: [id])
-
-  @@id([experienceId, skillId])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model ExperienceProject {

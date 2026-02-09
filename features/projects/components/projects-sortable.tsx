@@ -18,8 +18,8 @@ import { toast } from "sonner";
 import { reorderProjects } from "../server/reorder-projects";
 import { SortableProjectCard } from "./sortable-project-card";
 import { ProjectsType } from "../server/get-projects";
-import { ProjectType } from "../server/get-project";
 import { ProjectCard } from "./project-card";
+import { ProjectType } from "../lib/project.types";
 
 interface Props {
   projects: ProjectsType;

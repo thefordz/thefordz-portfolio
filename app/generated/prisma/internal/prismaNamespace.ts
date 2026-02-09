@@ -391,7 +391,6 @@ export const ModelName = {
   Project: 'Project',
   ProjectSkill: 'ProjectSkill',
   Experience: 'Experience',
-  ExperienceSkill: 'ExperienceSkill',
   ExperienceProject: 'ExperienceProject',
   Education: 'Education',
   User: 'User',
@@ -413,7 +412,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "profile" | "socialLink" | "skillCategory" | "skill" | "project" | "projectSkill" | "experience" | "experienceSkill" | "experienceProject" | "education" | "user" | "session" | "account" | "verification"
+    modelProps: "profile" | "socialLink" | "skillCategory" | "skill" | "project" | "projectSkill" | "experience" | "experienceProject" | "education" | "user" | "session" | "account" | "verification"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -932,80 +931,6 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.ExperienceCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.ExperienceCountAggregateOutputType> | number
-        }
-      }
-    }
-    ExperienceSkill: {
-      payload: Prisma.$ExperienceSkillPayload<ExtArgs>
-      fields: Prisma.ExperienceSkillFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.ExperienceSkillFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExperienceSkillPayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.ExperienceSkillFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExperienceSkillPayload>
-        }
-        findFirst: {
-          args: Prisma.ExperienceSkillFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExperienceSkillPayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.ExperienceSkillFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExperienceSkillPayload>
-        }
-        findMany: {
-          args: Prisma.ExperienceSkillFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExperienceSkillPayload>[]
-        }
-        create: {
-          args: Prisma.ExperienceSkillCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExperienceSkillPayload>
-        }
-        createMany: {
-          args: Prisma.ExperienceSkillCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        createManyAndReturn: {
-          args: Prisma.ExperienceSkillCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExperienceSkillPayload>[]
-        }
-        delete: {
-          args: Prisma.ExperienceSkillDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExperienceSkillPayload>
-        }
-        update: {
-          args: Prisma.ExperienceSkillUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExperienceSkillPayload>
-        }
-        deleteMany: {
-          args: Prisma.ExperienceSkillDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.ExperienceSkillUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateManyAndReturn: {
-          args: Prisma.ExperienceSkillUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExperienceSkillPayload>[]
-        }
-        upsert: {
-          args: Prisma.ExperienceSkillUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExperienceSkillPayload>
-        }
-        aggregate: {
-          args: Prisma.ExperienceSkillAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateExperienceSkill>
-        }
-        groupBy: {
-          args: Prisma.ExperienceSkillGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.ExperienceSkillGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.ExperienceSkillCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.ExperienceSkillCountAggregateOutputType> | number
         }
       }
     }
@@ -1593,14 +1518,6 @@ export const ExperienceScalarFieldEnum = {
 export type ExperienceScalarFieldEnum = (typeof ExperienceScalarFieldEnum)[keyof typeof ExperienceScalarFieldEnum]
 
 
-export const ExperienceSkillScalarFieldEnum = {
-  experienceId: 'experienceId',
-  skillId: 'skillId'
-} as const
-
-export type ExperienceSkillScalarFieldEnum = (typeof ExperienceSkillScalarFieldEnum)[keyof typeof ExperienceSkillScalarFieldEnum]
-
-
 export const ExperienceProjectScalarFieldEnum = {
   experienceId: 'experienceId',
   projectId: 'projectId'
@@ -1948,7 +1865,6 @@ export type GlobalOmitConfig = {
   project?: Prisma.ProjectOmit
   projectSkill?: Prisma.ProjectSkillOmit
   experience?: Prisma.ExperienceOmit
-  experienceSkill?: Prisma.ExperienceSkillOmit
   experienceProject?: Prisma.ExperienceProjectOmit
   education?: Prisma.EducationOmit
   user?: Prisma.UserOmit

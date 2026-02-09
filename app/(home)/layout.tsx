@@ -24,7 +24,7 @@ export default async function HomeLayout({
       <main className="w-full mb-24">
         {hasAdminAccess && <AdminViewToggle isAdmin={isAdmin} />}
         <Header />
-        <div className=" max-w-7xl mx-auto">{children}</div>
+        <div className=" max-w-7xl mx-auto my-6">{children}</div>
       </main>
     </SidebarProvider>
   );
