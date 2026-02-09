@@ -27,6 +27,7 @@ const nav = [
       { title: "Introduce", hash: "#introduce" },
       { title: "Features Projects", hash: "#projects" },
       { title: "Skills", hash: "#skills" },
+      { title: "Experience", hash: "#experience" },
       { title: "Contact", hash: "#contact" },
     ],
   },
