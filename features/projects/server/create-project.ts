@@ -1,4 +1,5 @@
 "use server";
+
 import {
   projectFormSchema,
   ProjectFormValues,
@@ -19,15 +20,21 @@ export async function createProject(values: ProjectFormValues) {
 
     await prisma.project.create({
       data: {
-        ...data,
+        title: data.title,
+        summary: data.summary,
         description: data.description || null,
+        projectType: data.projectType,
+        images: data.images || [],
         liveUrl: data.liveUrl || null,
         githubUrl: data.githubUrl || null,
         order: nextOrder,
         skills: {
-          create: data.skillIds?.map((skillId) => ({
-            skill: { connect: { id: skillId } },
-          })),
+          create:
+            data.skillIds && data.skillIds.length > 0
+              ? data.skillIds.map((skillId) => ({
+                  skill: { connect: { id: skillId } },
+                }))
+              : [],
         },
       },
     });
@@ -38,6 +45,7 @@ export async function createProject(values: ProjectFormValues) {
 
     return { success: true };
   } catch (error) {
-    handleActionError(error);
+    console.log("[Create Project]", error);
+    throw error;
   }
 }

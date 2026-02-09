@@ -38,9 +38,6 @@ export function ProjectDetailDialog({
   const images = project.images?.length ? project.images : [PREVIEW_IMAGE];
 
   function handleDelete() {
-    const confirmed = confirm(`Delete "${project?.title}"?`);
-    if (!confirmed) return;
-
     if (project?.id)
       startTransition(async () => {
         try {
@@ -96,7 +93,7 @@ export function ProjectDetailDialog({
             <ProjectImagesCarousel images={images} />
 
             {isAdmin && (
-              <div className="absolute top-2 right-2 flex gap-2">
+              <div className="absolute top-2 right-2 flex gap-2 z-10">
                 {onEdit && (
                   <Button
                     variant="secondary"
@@ -110,8 +107,9 @@ export function ProjectDetailDialog({
 
                 <Button
                   variant="destructive"
+                  // onClick={() => console.log("Test")}
                   onClick={handleDelete}
-                  disabled={isPending}
+                  // disabled={isPending}
                   className="h-9"
                 >
                   {isPending ? (
