@@ -8,19 +8,19 @@ import { Edit, Mouse } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { DialogWrapper } from "@/features/shared/components/dialog-wrapper";
 import { ProfileForm } from "./form/profile-form";
-import { ProfileFormValues } from "../lib/profile.validation";
 import { AdminContentWrapper } from "@/features/shared/components/admin-content-wrapper";
+import { ProfileType } from "../server/get-profile";
+import { mapProfileToFormSafe } from "../lib/profile.mapper";
 
 interface HeroSectionProps {
   isAdmin: boolean;
-  initialValues: ProfileFormValues;
+  initialValues: ProfileType;
 }
 
-export function HeroSection({
-  isAdmin,
-  initialValues: profile,
-}: HeroSectionProps) {
+export function HeroSection({ isAdmin, initialValues }: HeroSectionProps) {
   const [isOpen, setIsOpen] = useState(false);
+
+  const profile = mapProfileToFormSafe(initialValues);
 
   return (
     <>

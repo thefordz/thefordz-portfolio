@@ -1,4 +1,8 @@
 import { getServerAuth } from "@/features/auth/server/get-server-session";
+import {
+  ContactPage,
+  ContactSection,
+} from "@/features/contact/components/contact-section";
 import { ExperienceSection } from "@/features/experience/components/experience-section";
 import { getExperienceFormOptions } from "@/features/experience/server/get-experience-form-options";
 import { getExperiences } from "@/features/experience/server/get-experiences";
@@ -25,11 +29,9 @@ export default async function Home() {
   const { projectOptions } = await getExperienceFormOptions();
   const experiences = await getExperiences();
 
-  const initialProfile = mapProfileToFormSafe(profile);
-
   return (
     <div className="space-y-16">
-      <HeroSection isAdmin={isAdmin || false} initialValues={initialProfile} />
+      <HeroSection isAdmin={isAdmin || false} initialValues={profile} />
       {featuredProjects.length > 0 && (
         <FeaturedProjectsSection
           projects={featuredProjects}
@@ -42,6 +44,7 @@ export default async function Home() {
         projectOptions={projectOptions}
         experiences={experiences}
       />
+      <ContactSection profile={profile} />
     </div>
   );
 }
