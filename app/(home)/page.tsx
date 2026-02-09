@@ -1,4 +1,7 @@
 import { getServerAuth } from "@/features/auth/server/get-server-session";
+import { ExperienceSection } from "@/features/experience/components/experience-section";
+import { getExperienceFormOptions } from "@/features/experience/server/get-experience-form-options";
+import { getExperiences } from "@/features/experience/server/get-experiences";
 import { FeaturedProjectsSection } from "@/features/home/components/features-project-section";
 import { HeroSection } from "@/features/home/components/hero-section";
 import { SkillSection } from "@/features/home/components/skill-section";
@@ -19,6 +22,9 @@ export default async function Home() {
   const featuredProjects = await getFeaturedProjects(3);
   const skillCategories = await getSkillCategories();
 
+  const { projectOptions } = await getExperienceFormOptions();
+  const experiences = await getExperiences();
+
   const initialProfile = mapProfileToFormSafe(profile);
 
   return (
@@ -31,6 +37,11 @@ export default async function Home() {
         />
       )}
       <SkillSection isAdmin={isAdmin || false} categories={skillCategories} />
+      <ExperienceSection
+        isAdmin={isAdmin}
+        projectOptions={projectOptions}
+        experiences={experiences}
+      />
     </div>
   );
 }
