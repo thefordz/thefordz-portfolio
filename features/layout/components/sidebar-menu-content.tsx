@@ -18,7 +18,6 @@ import { cn } from "@/lib/utils";
 import { useHash } from "@/hooks/use-hash";
 import { Collapsible, CollapsibleContent } from "@/components/ui/collapsible";
 import { useScroll } from "@/hooks/use-scroll";
-import { useEffect } from "react";
 
 const nav = [
   {

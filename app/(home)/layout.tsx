@@ -21,7 +21,7 @@ export default async function HomeLayout({
   return (
     <SidebarProvider>
       <AppSidebar profile={profile} />
-      <main className="w-full  ">
+      <main className="w-full">
         {hasAdminAccess && <AdminViewToggle isAdmin={isAdmin} />}
         <Header />
         <div className=" max-w-7xl mx-auto my-6">{children}</div>
