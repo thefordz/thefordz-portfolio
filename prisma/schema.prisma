@@ -102,7 +102,7 @@ model Project {
   id String @id @default(cuid())
 
   title       String
-  summary     String
+  summary     String?
   description String?
 
   images String[]

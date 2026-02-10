@@ -31,7 +31,7 @@ export function DialogWrapper({
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
       <DialogContent
         className={cn(
-          "sm:max-w-5xl bg-secondary w-[90%] px-0 gap-0  h-full max-h-[80%] flex flex-col pb-0",
+          "sm:max-w-5xl  w-[90%] px-0 gap-0  h-full max-h-[80%] flex flex-col pb-0 ",
           className,
         )}
       >
@@ -44,7 +44,7 @@ export function DialogWrapper({
           </DialogDescription>
         </DialogHeader>
 
-        <div className="w-full h-full flex flex-col overflow-y-auto px-6 pt-6">
+        <div className="w-full h-full flex flex-col overflow-y-auto px-6 pt-6 ">
           {children}
         </div>
       </DialogContent>

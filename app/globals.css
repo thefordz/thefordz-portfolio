@@ -138,12 +138,12 @@ html {
     @apply bg-background text-foreground;
   }
   section {
-    @apply scroll-mt-32;
+    @apply scroll-mt-16;
   }
 }
 
 @layer components {
   .dialog-footer {
-    @apply sticky bottom-0 bg-secondary py-5 flex w-full justify-between gap-4;
+    @apply sticky bottom-0 bg-background py-5 flex w-full justify-between gap-4;
   }
 }

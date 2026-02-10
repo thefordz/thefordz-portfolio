@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ProjectCard } from "@/features/projects/components/project-card";
 import { ProjectDetailDialog } from "@/features/projects/components/project-detail-dialog";
 import { ProjectsType } from "@/features/projects/server/get-projects";
+import { AdminContentWrapper } from "@/features/shared/components/admin-content-wrapper";
 
 interface Props {
   projects: ProjectsType;
@@ -26,15 +27,10 @@ export function FeaturedProjectsSection({ projects, isAdmin }: Props) {
   return (
     <>
       <section id="projects" className="">
-        <div className="px-6 md:px-10 space-y-14 ">
-          <div className="space-y-2">
-            <h2 className="text-3xl font-semibold tracking-tight">
-              Featured Projects
-            </h2>
-            <p className="text-muted-foreground text-sm">
-              Selected work that represents my experience and focus.
-            </p>
-          </div>
+        <AdminContentWrapper
+          title="Featured Projects"
+          description="Selected work that represents my experience and focus."
+        >
           <div className="space-y-3">
             {projects.length > 0 ? (
               <>
@@ -59,7 +55,7 @@ export function FeaturedProjectsSection({ projects, isAdmin }: Props) {
               </>
             ) : null}
           </div>
-        </div>
+        </AdminContentWrapper>
       </section>
 
       <ProjectDetailDialog

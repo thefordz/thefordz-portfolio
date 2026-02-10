@@ -220,7 +220,7 @@ export type ProjectGroupByArgs<ExtArgs extends runtime.Types.Extensions.Internal
 export type ProjectGroupByOutputType = {
   id: string
   title: string
-  summary: string
+  summary: string | null
   description: string | null
   images: string[]
   projectType: $Enums.ProjectType
@@ -258,7 +258,7 @@ export type ProjectWhereInput = {
   NOT?: Prisma.ProjectWhereInput | Prisma.ProjectWhereInput[]
   id?: Prisma.StringFilter<"Project"> | string
   title?: Prisma.StringFilter<"Project"> | string
-  summary?: Prisma.StringFilter<"Project"> | string
+  summary?: Prisma.StringNullableFilter<"Project"> | string | null
   description?: Prisma.StringNullableFilter<"Project"> | string | null
   images?: Prisma.StringNullableListFilter<"Project">
   projectType?: Prisma.EnumProjectTypeFilter<"Project"> | $Enums.ProjectType
@@ -275,7 +275,7 @@ export type ProjectWhereInput = {
 export type ProjectOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   title?: Prisma.SortOrder
-  summary?: Prisma.SortOrder
+  summary?: Prisma.SortOrderInput | Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   images?: Prisma.SortOrder
   projectType?: Prisma.SortOrder
@@ -295,7 +295,7 @@ export type ProjectWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.ProjectWhereInput[]
   NOT?: Prisma.ProjectWhereInput | Prisma.ProjectWhereInput[]
   title?: Prisma.StringFilter<"Project"> | string
-  summary?: Prisma.StringFilter<"Project"> | string
+  summary?: Prisma.StringNullableFilter<"Project"> | string | null
   description?: Prisma.StringNullableFilter<"Project"> | string | null
   images?: Prisma.StringNullableListFilter<"Project">
   projectType?: Prisma.EnumProjectTypeFilter<"Project"> | $Enums.ProjectType
@@ -312,7 +312,7 @@ export type ProjectWhereUniqueInput = Prisma.AtLeast<{
 export type ProjectOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   title?: Prisma.SortOrder
-  summary?: Prisma.SortOrder
+  summary?: Prisma.SortOrderInput | Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   images?: Prisma.SortOrder
   projectType?: Prisma.SortOrder
@@ -335,7 +335,7 @@ export type ProjectScalarWhereWithAggregatesInput = {
   NOT?: Prisma.ProjectScalarWhereWithAggregatesInput | Prisma.ProjectScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Project"> | string
   title?: Prisma.StringWithAggregatesFilter<"Project"> | string
-  summary?: Prisma.StringWithAggregatesFilter<"Project"> | string
+  summary?: Prisma.StringNullableWithAggregatesFilter<"Project"> | string | null
   description?: Prisma.StringNullableWithAggregatesFilter<"Project"> | string | null
   images?: Prisma.StringNullableListFilter<"Project">
   projectType?: Prisma.EnumProjectTypeWithAggregatesFilter<"Project"> | $Enums.ProjectType
@@ -350,7 +350,7 @@ export type ProjectScalarWhereWithAggregatesInput = {
 export type ProjectCreateInput = {
   id?: string
   title: string
-  summary: string
+  summary?: string | null
   description?: string | null
   images?: Prisma.ProjectCreateimagesInput | string[]
   projectType: $Enums.ProjectType
@@ -367,7 +367,7 @@ export type ProjectCreateInput = {
 export type ProjectUncheckedCreateInput = {
   id?: string
   title: string
-  summary: string
+  summary?: string | null
   description?: string | null
   images?: Prisma.ProjectCreateimagesInput | string[]
   projectType: $Enums.ProjectType
@@ -384,7 +384,7 @@ export type ProjectUncheckedCreateInput = {
 export type ProjectUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
-  summary?: Prisma.StringFieldUpdateOperationsInput | string
+  summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   images?: Prisma.ProjectUpdateimagesInput | string[]
   projectType?: Prisma.EnumProjectTypeFieldUpdateOperationsInput | $Enums.ProjectType
@@ -401,7 +401,7 @@ export type ProjectUpdateInput = {
 export type ProjectUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
-  summary?: Prisma.StringFieldUpdateOperationsInput | string
+  summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   images?: Prisma.ProjectUpdateimagesInput | string[]
   projectType?: Prisma.EnumProjectTypeFieldUpdateOperationsInput | $Enums.ProjectType
@@ -418,7 +418,7 @@ export type ProjectUncheckedUpdateInput = {
 export type ProjectCreateManyInput = {
   id?: string
   title: string
-  summary: string
+  summary?: string | null
   description?: string | null
   images?: Prisma.ProjectCreateimagesInput | string[]
   projectType: $Enums.ProjectType
@@ -433,7 +433,7 @@ export type ProjectCreateManyInput = {
 export type ProjectUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
-  summary?: Prisma.StringFieldUpdateOperationsInput | string
+  summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   images?: Prisma.ProjectUpdateimagesInput | string[]
   projectType?: Prisma.EnumProjectTypeFieldUpdateOperationsInput | $Enums.ProjectType
@@ -448,7 +448,7 @@ export type ProjectUpdateManyMutationInput = {
 export type ProjectUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
-  summary?: Prisma.StringFieldUpdateOperationsInput | string
+  summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   images?: Prisma.ProjectUpdateimagesInput | string[]
   projectType?: Prisma.EnumProjectTypeFieldUpdateOperationsInput | $Enums.ProjectType
@@ -568,7 +568,7 @@ export type ProjectUpdateOneRequiredWithoutExperienceProjectsNestedInput = {
 export type ProjectCreateWithoutSkillsInput = {
   id?: string
   title: string
-  summary: string
+  summary?: string | null
   description?: string | null
   images?: Prisma.ProjectCreateimagesInput | string[]
   projectType: $Enums.ProjectType
@@ -584,7 +584,7 @@ export type ProjectCreateWithoutSkillsInput = {
 export type ProjectUncheckedCreateWithoutSkillsInput = {
   id?: string
   title: string
-  summary: string
+  summary?: string | null
   description?: string | null
   images?: Prisma.ProjectCreateimagesInput | string[]
   projectType: $Enums.ProjectType
@@ -616,7 +616,7 @@ export type ProjectUpdateToOneWithWhereWithoutSkillsInput = {
 export type ProjectUpdateWithoutSkillsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
-  summary?: Prisma.StringFieldUpdateOperationsInput | string
+  summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   images?: Prisma.ProjectUpdateimagesInput | string[]
   projectType?: Prisma.EnumProjectTypeFieldUpdateOperationsInput | $Enums.ProjectType
@@ -632,7 +632,7 @@ export type ProjectUpdateWithoutSkillsInput = {
 export type ProjectUncheckedUpdateWithoutSkillsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
-  summary?: Prisma.StringFieldUpdateOperationsInput | string
+  summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   images?: Prisma.ProjectUpdateimagesInput | string[]
   projectType?: Prisma.EnumProjectTypeFieldUpdateOperationsInput | $Enums.ProjectType
@@ -648,7 +648,7 @@ export type ProjectUncheckedUpdateWithoutSkillsInput = {
 export type ProjectCreateWithoutExperienceProjectsInput = {
   id?: string
   title: string
-  summary: string
+  summary?: string | null
   description?: string | null
   images?: Prisma.ProjectCreateimagesInput | string[]
   projectType: $Enums.ProjectType
@@ -664,7 +664,7 @@ export type ProjectCreateWithoutExperienceProjectsInput = {
 export type ProjectUncheckedCreateWithoutExperienceProjectsInput = {
   id?: string
   title: string
-  summary: string
+  summary?: string | null
   description?: string | null
   images?: Prisma.ProjectCreateimagesInput | string[]
   projectType: $Enums.ProjectType
@@ -696,7 +696,7 @@ export type ProjectUpdateToOneWithWhereWithoutExperienceProjectsInput = {
 export type ProjectUpdateWithoutExperienceProjectsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
-  summary?: Prisma.StringFieldUpdateOperationsInput | string
+  summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   images?: Prisma.ProjectUpdateimagesInput | string[]
   projectType?: Prisma.EnumProjectTypeFieldUpdateOperationsInput | $Enums.ProjectType
@@ -712,7 +712,7 @@ export type ProjectUpdateWithoutExperienceProjectsInput = {
 export type ProjectUncheckedUpdateWithoutExperienceProjectsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
-  summary?: Prisma.StringFieldUpdateOperationsInput | string
+  summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   images?: Prisma.ProjectUpdateimagesInput | string[]
   projectType?: Prisma.EnumProjectTypeFieldUpdateOperationsInput | $Enums.ProjectType
@@ -846,7 +846,7 @@ export type $ProjectPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     title: string
-    summary: string
+    summary: string | null
     description: string | null
     images: string[]
     projectType: $Enums.ProjectType

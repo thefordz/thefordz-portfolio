@@ -78,9 +78,9 @@ export function ProjectsForm({
       <form
         onSubmit={form.handleSubmit(onSubmit)}
         id="project-form"
-        className="space-y-6"
+        className=" flex flex-col h-full "
       >
-        <div className="grid gap-6 grid-cols-1 lg:grid-cols-12   ">
+        <div className="grid gap-6 h-full grid-cols-1 lg:grid-cols-12   ">
           <div className="lg:col-span-8">
             <CardWrapper title="Basic Information">
               <IsFeaturedField />

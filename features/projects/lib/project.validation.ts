@@ -14,7 +14,7 @@ export const projectFormSchema = z.object({
   id: z.string().optional(),
 
   title: z.string().min(1, "Title is required").max(120),
-  summary: z.string().min(1, "Summary is required").max(240),
+  summary: z.string().max(240).optional(),
   description: z.string().max(4000).optional().or(z.literal("")),
 
   images: z

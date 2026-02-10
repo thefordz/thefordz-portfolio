@@ -49,8 +49,8 @@ export function ExperienceCard({ experience, isAdmin, onEdit }: Props) {
     const months = totalMonths % 12;
 
     duration = [
-      years > 0 ? `${years} yr${years > 1 ? "s" : ""}` : "",
-      months > 0 ? `${months} mo${months > 1 ? "s" : ""}` : "",
+      years > 0 ? `${years} year${years > 1 ? "s" : ""}` : "",
+      months > 0 ? `${months} month${months > 1 ? "s" : ""}` : "",
     ]
       .filter(Boolean)
       .join(" ");
@@ -65,12 +65,6 @@ export function ExperienceCard({ experience, isAdmin, onEdit }: Props) {
   ];
 
   function handleDelete() {
-    const confirmDelete = confirm(
-      `Delete "${experience.role} at ${experience.company}" ?`,
-    );
-
-    if (!confirmDelete) return;
-
     startTransition(async () => {
       try {
         await deleteExperience(experience.id);

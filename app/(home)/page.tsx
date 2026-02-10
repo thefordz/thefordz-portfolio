@@ -9,6 +9,7 @@ import { FeaturedProjectsSection } from "@/features/home/components/features-pro
 import { HeroSection } from "@/features/home/components/hero-section";
 import { SkillSection } from "@/features/home/components/skill-section";
 import { getProfile } from "@/features/home/server/get-profile";
+import { Footer } from "@/features/layout/components/footer";
 import { getFeaturedProjects } from "@/features/projects/server/get-projects";
 import { getSkillCategories } from "@/features/skill/server/get-skill-categories";
 import { cookies } from "next/headers";
