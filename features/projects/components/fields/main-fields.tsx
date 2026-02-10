@@ -12,7 +12,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useFormContext } from "react-hook-form";
 import { ProjectFormValues } from "../../lib/project.validation";
-import { SlugField } from "./slug-field";
 
 export function MainFields() {
   const form = useFormContext<ProjectFormValues>();
@@ -32,8 +31,6 @@ export function MainFields() {
           </FormItem>
         )}
       />
-
-      <SlugField />
 
       <FormField
         control={form.control}
