@@ -19,6 +19,7 @@ export async function getExperiences() {
                         select: {
                           id: true,
                           name: true,
+                          order: true,
                         },
                       },
                     },
@@ -49,6 +50,7 @@ export type ExperienceWithProjects = Prisma.ExperienceGetPayload<{
                       select: {
                         id: true;
                         name: true;
+                        order: true;
                       };
                     };
                   };

@@ -21,6 +21,7 @@ export async function getProjects() {
                 select: {
                   id: true,
                   name: true,
+                  order: true,
                 },
               },
             },
