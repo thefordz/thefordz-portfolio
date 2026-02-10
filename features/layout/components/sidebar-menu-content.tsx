@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Folder, Briefcase } from "lucide-react";
+import { Home, Folder } from "lucide-react";
 
 import {
   SidebarContent,
@@ -17,6 +17,8 @@ import {
 import { cn } from "@/lib/utils";
 import { useHash } from "@/hooks/use-hash";
 import { Collapsible, CollapsibleContent } from "@/components/ui/collapsible";
+import { useScroll } from "@/hooks/use-scroll";
+import { useEffect } from "react";
 
 const nav = [
   {
@@ -36,17 +38,30 @@ const nav = [
     url: "/projects",
     icon: Folder,
   },
-  {
-    title: "Experience",
-    url: "/experience",
-    icon: Briefcase,
-  },
+  // {
+  //   title: "Experience",
+  //   url: "/experience",
+  //   icon: Briefcase,
+  // },
 ];
 
 export function SidebarMenuContent() {
   const pathname = usePathname();
   const hash = useHash();
 
+  const homeSections =
+    nav.find((n) => n.url === "/")?.items?.map((i) => i.hash) ?? [];
+  const scrollHash = useScroll(homeSections);
+
+  const activeHash =
+    scrollHash || hash || (pathname === "/" ? homeSections[0] : "");
+
+  // useEffect(() => {
+  //   if (pathname === "/" && !window.location.hash) {
+  //     window.history.replaceState(null, "", homeSections[0]);
+  //   }
+  // }, [pathname, homeSections]);
+  //
   return (
     <SidebarContent>
       <SidebarGroup>
@@ -79,7 +94,8 @@ export function SidebarMenuContent() {
                     {item.url === "/" && pathname.startsWith(item.url) && (
                       <SidebarMenuSub>
                         {item.items?.map((sub) => {
-                          const isSubActive = hash === sub.hash;
+                          const isSubActive =
+                            pathname === "/" && activeHash === sub.hash;
 
                           return (
                             <SidebarMenuSubItem key={sub.title}>
@@ -90,7 +106,7 @@ export function SidebarMenuContent() {
                                   isSubActive && "text-foreground font-medium",
                                 )}
                               >
-                                <a href={`/${sub.hash}`}>{sub.title}</a>
+                                <a href={`${sub.hash}`}>{sub.title}</a>
                               </SidebarMenuSubButton>
                             </SidebarMenuSubItem>
                           );

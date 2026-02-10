@@ -26,7 +26,7 @@ export function HeroSection({ isAdmin, initialValues }: HeroSectionProps) {
     <>
       <section
         id="introduce"
-        className="relative flex items-center min-h-[calc(100vh-64px)] "
+        className="relative flex items-center min-h-[calc(100vh-64px-24px-24px)] "
       >
         <div className="hidden md:flex absolute w-full bottom-6 justify-center">
           <Mouse className="animate-bounce opacity-60" />

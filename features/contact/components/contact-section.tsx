@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Mail, Github, FileText, MapPin } from "lucide-react";
+import { Mail, FileText, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ProfileType } from "@/features/home/server/get-profile";
 import { AdminContentWrapper } from "@/features/shared/components/admin-content-wrapper";
@@ -15,7 +15,10 @@ export function ContactSection({ profile }: ContactPageProps) {
   const email = profile?.socials.find((s) => s.url.startsWith("mailto:"));
 
   return (
-    <section className="max-w-7xl mx-auto py-24 px-6 space-y-12">
+    <section
+      id="contact"
+      className="max-w-7xl mx-auto py-24 px-6 space-y-12  min-h-[calc(50vh-64px)]"
+    >
       <AdminContentWrapper
         title="Get In Touch"
         description="
