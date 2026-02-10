@@ -18,6 +18,6 @@ export function mapExperienceToFormSafe(
     isCurrent: experience?.isCurrent ?? false,
 
     projectIds:
-      experience?.experienceProjects?.map((p) => p.experienceId) ?? [],
+      experience?.experienceProjects?.map((exp) => exp.projectId) ?? [],
   };
 }

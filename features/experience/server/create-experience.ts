@@ -33,7 +33,6 @@ export async function createExperience(values: ExperienceFormValues) {
         endDate: data.endDate ?? null,
         isCurrent: data.isCurrent,
         order: nextOrder,
-
         experienceProjects: {
           create:
             data.projectIds?.map((projectId) => ({

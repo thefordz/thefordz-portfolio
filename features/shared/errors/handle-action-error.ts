@@ -2,7 +2,12 @@ import { ZodError } from "zod";
 import { AppError } from "./app-error";
 import { Prisma } from "@/app/generated/prisma/client";
 
-export function handleActionError(error: unknown) {
+export function handleActionError(error: unknown, title?: string) {
+  console.error(`[${title}]`, error);
+  if (process.env.NODE_ENV === "development") {
+    throw error;
+  }
+
   if (error instanceof AppError) {
     throw error;
   }

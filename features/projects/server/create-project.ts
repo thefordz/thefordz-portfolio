@@ -1,11 +1,11 @@
 "use server";
 
+import { handleActionError } from "@/features/shared/errors/handle-action-error";
 import {
   projectFormSchema,
   ProjectFormValues,
 } from "../lib/project.validation";
 import prisma from "@/lib/prisma";
-import { handleActionError } from "@/features/shared/errors/handle-action-error";
 import { revalidatePath } from "next/cache";
 
 export async function createProject(values: ProjectFormValues) {
@@ -45,7 +45,6 @@ export async function createProject(values: ProjectFormValues) {
 
     return { success: true };
   } catch (error) {
-    console.log("[Create Project]", error);
-    throw error;
+    handleActionError(error, "Create Project");
   }
 }

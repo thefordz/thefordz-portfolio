@@ -28,7 +28,6 @@ export async function updateExperience(
         startDate: data.startDate,
         endDate: data.endDate ?? null,
         isCurrent: data.isCurrent,
-
         experienceProjects: {
           deleteMany: {},
           create:

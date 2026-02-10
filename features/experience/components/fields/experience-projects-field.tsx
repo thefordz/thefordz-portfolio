@@ -37,22 +37,33 @@ interface Props {
 }
 
 export function ExperienceProjectsField({ projectOptions }: Props) {
-  const { control } = useFormContext<ExperienceFormValues>();
+  const { control, watch } = useFormContext<ExperienceFormValues>();
   const [open, setOpen] = useState(false);
+
+  const selectedIds = watch("projectIds") ?? [];
+
+  const selectedProjects = projectOptions.filter((project) =>
+    selectedIds.includes(project.id),
+  );
 
   return (
     <FormField
       control={control}
       name="projectIds"
       render={({ field }) => {
-        const selectedIds: string[] = field.value || [];
+        const toggleProject = (projectId: string) => {
+          const exists = selectedIds.includes(projectId);
 
-        const selectedProjects = projectOptions.filter((p) =>
-          selectedIds.includes(p.id),
-        );
+          const next = exists
+            ? selectedIds.filter((pid) => pid !== projectId)
+            : [...selectedIds, projectId];
+
+          field.onChange(next);
+        };
 
         return (
           <FormItem className="space-y-4">
+            {/* Selected Projects */}
             <div className="min-h-9">
               {selectedProjects.length === 0 ? (
                 <p className="text-xs text-muted-foreground">
@@ -64,18 +75,13 @@ export function ExperienceProjectsField({ projectOptions }: Props) {
                     <Badge
                       key={project.id}
                       variant="secondary"
-                      className="px-3 py-1 rounded-full text-xs flex items-center gap-1 transition hover:bg-muted"
+                      className="px-3 py-1 rounded-full text-xs flex items-center gap-1"
                     >
                       {project.title}
 
                       <button
                         type="button"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          field.onChange(
-                            selectedIds.filter((id) => id !== project.id),
-                          );
-                        }}
+                        onClick={() => toggleProject(project.id)}
                         className="opacity-60 hover:opacity-100 transition"
                       >
                         <X className="h-3 w-3" />
@@ -86,6 +92,7 @@ export function ExperienceProjectsField({ projectOptions }: Props) {
               )}
             </div>
 
+            {/* Selector */}
             <Popover open={open} onOpenChange={setOpen}>
               <PopoverTrigger asChild>
                 <FormControl>
@@ -103,7 +110,7 @@ export function ExperienceProjectsField({ projectOptions }: Props) {
 
               <PopoverContent
                 align="start"
-                className="w-75 p-0 rounded-lg shadow-xl"
+                className="w-72 p-0 rounded-lg shadow-xl"
               >
                 <Command>
                   <CommandInput placeholder="Search project..." />
@@ -116,16 +123,8 @@ export function ExperienceProjectsField({ projectOptions }: Props) {
                       return (
                         <CommandItem
                           key={project.id}
-                          className="text-sm"
-                          onSelect={() => {
-                            if (isSelected) {
-                              field.onChange(
-                                selectedIds.filter((id) => id !== project.id),
-                              );
-                            } else {
-                              field.onChange([...selectedIds, project.id]);
-                            }
-                          }}
+                          onSelect={() => toggleProject(project.id)}
+                          className="cursor-pointer"
                         >
                           <Check
                             className={cn(
