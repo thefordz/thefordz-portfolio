@@ -27,14 +27,10 @@ export type AggregateEducation = {
 }
 
 export type EducationAvgAggregateOutputType = {
-  startYear: number | null
-  endYear: number | null
   order: number | null
 }
 
 export type EducationSumAggregateOutputType = {
-  startYear: number | null
-  endYear: number | null
   order: number | null
 }
 
@@ -43,8 +39,8 @@ export type EducationMinAggregateOutputType = {
   institution: string | null
   degree: string | null
   field: string | null
-  startYear: number | null
-  endYear: number | null
+  startYear: Date | null
+  endYear: Date | null
   logoUrl: string | null
   description: string | null
   order: number | null
@@ -57,8 +53,8 @@ export type EducationMaxAggregateOutputType = {
   institution: string | null
   degree: string | null
   field: string | null
-  startYear: number | null
-  endYear: number | null
+  startYear: Date | null
+  endYear: Date | null
   logoUrl: string | null
   description: string | null
   order: number | null
@@ -83,14 +79,10 @@ export type EducationCountAggregateOutputType = {
 
 
 export type EducationAvgAggregateInputType = {
-  startYear?: true
-  endYear?: true
   order?: true
 }
 
 export type EducationSumAggregateInputType = {
-  startYear?: true
-  endYear?: true
   order?: true
 }
 
@@ -228,8 +220,8 @@ export type EducationGroupByOutputType = {
   institution: string
   degree: string | null
   field: string | null
-  startYear: number | null
-  endYear: number | null
+  startYear: Date | null
+  endYear: Date | null
   logoUrl: string | null
   description: string | null
   order: number
@@ -265,8 +257,8 @@ export type EducationWhereInput = {
   institution?: Prisma.StringFilter<"Education"> | string
   degree?: Prisma.StringNullableFilter<"Education"> | string | null
   field?: Prisma.StringNullableFilter<"Education"> | string | null
-  startYear?: Prisma.IntNullableFilter<"Education"> | number | null
-  endYear?: Prisma.IntNullableFilter<"Education"> | number | null
+  startYear?: Prisma.DateTimeNullableFilter<"Education"> | Date | string | null
+  endYear?: Prisma.DateTimeNullableFilter<"Education"> | Date | string | null
   logoUrl?: Prisma.StringNullableFilter<"Education"> | string | null
   description?: Prisma.StringNullableFilter<"Education"> | string | null
   order?: Prisma.IntFilter<"Education"> | number
@@ -296,8 +288,8 @@ export type EducationWhereUniqueInput = Prisma.AtLeast<{
   institution?: Prisma.StringFilter<"Education"> | string
   degree?: Prisma.StringNullableFilter<"Education"> | string | null
   field?: Prisma.StringNullableFilter<"Education"> | string | null
-  startYear?: Prisma.IntNullableFilter<"Education"> | number | null
-  endYear?: Prisma.IntNullableFilter<"Education"> | number | null
+  startYear?: Prisma.DateTimeNullableFilter<"Education"> | Date | string | null
+  endYear?: Prisma.DateTimeNullableFilter<"Education"> | Date | string | null
   logoUrl?: Prisma.StringNullableFilter<"Education"> | string | null
   description?: Prisma.StringNullableFilter<"Education"> | string | null
   order?: Prisma.IntFilter<"Education"> | number
@@ -332,8 +324,8 @@ export type EducationScalarWhereWithAggregatesInput = {
   institution?: Prisma.StringWithAggregatesFilter<"Education"> | string
   degree?: Prisma.StringNullableWithAggregatesFilter<"Education"> | string | null
   field?: Prisma.StringNullableWithAggregatesFilter<"Education"> | string | null
-  startYear?: Prisma.IntNullableWithAggregatesFilter<"Education"> | number | null
-  endYear?: Prisma.IntNullableWithAggregatesFilter<"Education"> | number | null
+  startYear?: Prisma.DateTimeNullableWithAggregatesFilter<"Education"> | Date | string | null
+  endYear?: Prisma.DateTimeNullableWithAggregatesFilter<"Education"> | Date | string | null
   logoUrl?: Prisma.StringNullableWithAggregatesFilter<"Education"> | string | null
   description?: Prisma.StringNullableWithAggregatesFilter<"Education"> | string | null
   order?: Prisma.IntWithAggregatesFilter<"Education"> | number
@@ -346,8 +338,8 @@ export type EducationCreateInput = {
   institution: string
   degree?: string | null
   field?: string | null
-  startYear?: number | null
-  endYear?: number | null
+  startYear?: Date | string | null
+  endYear?: Date | string | null
   logoUrl?: string | null
   description?: string | null
   order?: number
@@ -360,8 +352,8 @@ export type EducationUncheckedCreateInput = {
   institution: string
   degree?: string | null
   field?: string | null
-  startYear?: number | null
-  endYear?: number | null
+  startYear?: Date | string | null
+  endYear?: Date | string | null
   logoUrl?: string | null
   description?: string | null
   order?: number
@@ -374,8 +366,8 @@ export type EducationUpdateInput = {
   institution?: Prisma.StringFieldUpdateOperationsInput | string
   degree?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   field?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  startYear?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  endYear?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  startYear?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  endYear?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   order?: Prisma.IntFieldUpdateOperationsInput | number
@@ -388,8 +380,8 @@ export type EducationUncheckedUpdateInput = {
   institution?: Prisma.StringFieldUpdateOperationsInput | string
   degree?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   field?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  startYear?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  endYear?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  startYear?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  endYear?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   order?: Prisma.IntFieldUpdateOperationsInput | number
@@ -402,8 +394,8 @@ export type EducationCreateManyInput = {
   institution: string
   degree?: string | null
   field?: string | null
-  startYear?: number | null
-  endYear?: number | null
+  startYear?: Date | string | null
+  endYear?: Date | string | null
   logoUrl?: string | null
   description?: string | null
   order?: number
@@ -416,8 +408,8 @@ export type EducationUpdateManyMutationInput = {
   institution?: Prisma.StringFieldUpdateOperationsInput | string
   degree?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   field?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  startYear?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  endYear?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  startYear?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  endYear?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   order?: Prisma.IntFieldUpdateOperationsInput | number
@@ -430,8 +422,8 @@ export type EducationUncheckedUpdateManyInput = {
   institution?: Prisma.StringFieldUpdateOperationsInput | string
   degree?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   field?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  startYear?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  endYear?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  startYear?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  endYear?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   order?: Prisma.IntFieldUpdateOperationsInput | number
@@ -454,8 +446,6 @@ export type EducationCountOrderByAggregateInput = {
 }
 
 export type EducationAvgOrderByAggregateInput = {
-  startYear?: Prisma.SortOrder
-  endYear?: Prisma.SortOrder
   order?: Prisma.SortOrder
 }
 
@@ -488,8 +478,6 @@ export type EducationMinOrderByAggregateInput = {
 }
 
 export type EducationSumOrderByAggregateInput = {
-  startYear?: Prisma.SortOrder
-  endYear?: Prisma.SortOrder
   order?: Prisma.SortOrder
 }
 
@@ -561,8 +549,8 @@ export type $EducationPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     institution: string
     degree: string | null
     field: string | null
-    startYear: number | null
-    endYear: number | null
+    startYear: Date | null
+    endYear: Date | null
     logoUrl: string | null
     description: string | null
     order: number
@@ -995,8 +983,8 @@ export interface EducationFieldRefs {
   readonly institution: Prisma.FieldRef<"Education", 'String'>
   readonly degree: Prisma.FieldRef<"Education", 'String'>
   readonly field: Prisma.FieldRef<"Education", 'String'>
-  readonly startYear: Prisma.FieldRef<"Education", 'Int'>
-  readonly endYear: Prisma.FieldRef<"Education", 'Int'>
+  readonly startYear: Prisma.FieldRef<"Education", 'DateTime'>
+  readonly endYear: Prisma.FieldRef<"Education", 'DateTime'>
   readonly logoUrl: Prisma.FieldRef<"Education", 'String'>
   readonly description: Prisma.FieldRef<"Education", 'String'>
   readonly order: Prisma.FieldRef<"Education", 'Int'>

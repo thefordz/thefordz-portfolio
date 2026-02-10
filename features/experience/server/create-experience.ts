@@ -44,6 +44,7 @@ export async function createExperience(values: ExperienceFormValues) {
       },
     });
 
+    revalidatePath("/");
     revalidatePath("/experience");
 
     return { success: true };

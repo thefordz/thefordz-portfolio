@@ -31,7 +31,6 @@ export const experienceFormSchema = z
     endDate: z.date().optional(),
     isCurrent: z.boolean(),
     // logoUrl: z.string().optional(),
-    // skillIds: z.array(z.string()),
     projectIds: z.array(z.string()),
   })
   .superRefine((data, ctx) => {

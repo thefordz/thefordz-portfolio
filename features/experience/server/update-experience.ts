@@ -41,6 +41,7 @@ export async function updateExperience(
     });
 
     revalidatePath("/experience");
+    revalidatePath("/");
 
     return { success: true };
   } catch (error) {

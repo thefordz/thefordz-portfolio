@@ -177,8 +177,8 @@ model Education {
   degree      String?
   field       String?
 
-  startYear Int?
-  endYear   Int?
+  startYear DateTime?
+  endYear   DateTime?
 
   logoUrl     String?
   description String?
