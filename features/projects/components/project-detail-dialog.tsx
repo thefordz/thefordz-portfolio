@@ -149,7 +149,7 @@ export function ProjectDetailDialog({
             </div>
             {project.summary && (
               <div className="ml-4 border-l-4 pl-2">
-                <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-3xl">
+                <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-3xl whitespace-pre-line">
                   {project.summary}
                 </p>
               </div>
@@ -246,7 +246,7 @@ export function ProjectDetailDialog({
                 </p>
               </div>
 
-              <div className="prose dark:prose-invert max-w-none">
+              <div className="prose dark:prose-invert max-w-none whitespace-pre-line ">
                 {project.description}
               </div>
             </div>
