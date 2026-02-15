@@ -4,6 +4,8 @@ import { getProjects } from "@/features/projects/server/get-projects";
 import { getSkillsForProject } from "@/features/projects/server/get-skills-for-project";
 import { cookies } from "next/headers";
 
+export const revalidate = 86400; // 1 days
+
 export default async function ProjectsPage() {
   const { hasAdminAccess } = await getServerAuth();
   const cookieStore = await cookies();

@@ -9,10 +9,11 @@ import { FeaturedProjectsSection } from "@/features/home/components/features-pro
 import { HeroSection } from "@/features/home/components/hero-section";
 import { SkillSection } from "@/features/home/components/skill-section";
 import { getProfile } from "@/features/home/server/get-profile";
-import { Footer } from "@/features/layout/components/footer";
 import { getFeaturedProjects } from "@/features/projects/server/get-projects";
 import { getSkillCategories } from "@/features/skill/server/get-skill-categories";
 import { cookies } from "next/headers";
+
+export const revalidate = 86400; // 1 days
 
 export default async function Home() {
   const { hasAdminAccess } = await getServerAuth();
@@ -21,13 +22,15 @@ export default async function Home() {
   const viewMode = cookieStore.get("admin_view")?.value;
   const isAdmin = hasAdminAccess && viewMode !== "preview";
 
-  const profile = await getProfile();
-  const featuredProjects = await getFeaturedProjects(3);
-  const skillCategories = await getSkillCategories();
-  const educations = await getEducations();
-
+  const [profile, featuredProjects, skillCategories, educations, experiences] =
+    await Promise.all([
+      getProfile(),
+      getFeaturedProjects(3),
+      getSkillCategories(),
+      getEducations(),
+      getExperiences(),
+    ]);
   const { projectOptions } = await getExperienceFormOptions();
-  const experiences = await getExperiences();
 
   return (
     <div className="space-y-16">
