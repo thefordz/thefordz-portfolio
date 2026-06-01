@@ -13,6 +13,7 @@ import {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
+  useSidebar,
 } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
 import { useHash } from "@/hooks/use-hash";
@@ -47,6 +48,11 @@ const nav = [
 export function SidebarMenuContent() {
   const pathname = usePathname();
   const hash = useHash();
+  const { setOpenMobile, isMobile } = useSidebar();
+
+  const closeMobile = () => {
+    if (isMobile) setOpenMobile(false);
+  };
 
   const homeSections =
     nav.find((n) => n.url === "/")?.items?.map((i) => i.hash) ?? [];
@@ -77,7 +83,7 @@ export function SidebarMenuContent() {
               >
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild isActive={isActive}>
-                    <Link href={item.url}>
+                    <Link href={item.url} onClick={closeMobile}>
                       <item.icon className="h-4 w-4" />
                       <span>{item.title}</span>
                     </Link>
@@ -105,7 +111,7 @@ export function SidebarMenuContent() {
                                   isSubActive && "text-foreground font-medium",
                                 )}
                               >
-                                <a href={`${sub.hash}`}>{sub.title}</a>
+                                <a href={`${sub.hash}`} onClick={closeMobile}>{sub.title}</a>
                               </SidebarMenuSubButton>
                             </SidebarMenuSubItem>
                           );
